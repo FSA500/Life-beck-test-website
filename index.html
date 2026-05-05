@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Beck | Attorney at Law — Property Rights, Done Right.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal:       #109B75;
+            --teal-deep:  #1D7B5E;
+            --teal-light: rgba(16,155,117,0.12);
+            --teal-glow:  rgba(16,155,117,0.25);
+            --black:      #000000;
+            --dark:       #0a0a0a;
+            --dark-card:  #0d0d0d;
+            --charcoal:   #1A1A1A;
+            --stone:      #8E8780;
+            --off-white:  #F8F6F1;
+            --white:      #FFFFFF;
+            --border-dim: rgba(255,255,255,0.06);
+            --border-teal: rgba(16,155,117,0.2);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'DM Sans', system-ui, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            line-height: 1.15;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { display: block; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+        /* ── TOP BAR ─────────────────────────────────── */
+        #topbar {
+            background: rgba(5,5,5,0.92);
+            border-bottom: 1px solid var(--border-dim);
+            padding: 9px 0;
+            position: relative; z-index: 1;
+        }
+
+        .topbar-inner {
+            display: flex; align-items: center;
+            justify-content: space-between;
+        }
+
+        .topbar-left {
+            font-size: 12px; color: rgba(255,255,255,0.35);
+            letter-spacing: 0.1em; text-transform: uppercase;
+        }
+
+        .topbar-phone {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 14px; font-weight: 500;
+            color: var(--teal); letter-spacing: 0.03em;
+        }
+
+        .topbar-phone svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        /* ── NAVBAR ──────────────────────────────────── */
+        nav {
+            background: rgba(0,0,0,0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-teal);
+            position: sticky; top: 0; z-index: 200;
+            transition: box-shadow 0.2s;
+        }
+
+        nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.6); }
+
+        .nav-inner {
+            display: flex; align-items: center;
+            justify-content: space-between; height: 88px;
+        }
+
+        /* Life Beck logo — HTML recreation */
+        .nav-logo {
+            display: flex; align-items: center; gap: 13px;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon svg { width: 46px; height: 46px; display: block; }
+
+        .nav-logo-text { display: flex; flex-direction: column; gap: 3px; }
+
+        .nav-logo-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px; font-weight: 700;
+            color: var(--white); line-height: 1;
+        }
+
+        .nav-logo-tagline {
+            font-size: 11px; font-weight: 300;
+            letter-spacing: 0.16em; text-transform: uppercase;
+            color: rgba(255,255,255,0.4); line-height: 1.5;
+        }
+
+        .nav-links {
+            display: flex; align-items: center;
+            gap: 32px; list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 13px; font-weight: 400;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            color: rgba(255,255,255,0.6); transition: color 0.15s;
+        }
+
+        .nav-links a:hover { color: var(--teal); }
+
+        .btn-teal {
+            background: var(--teal); color: var(--white);
+            padding: 11px 24px; font-size: 13px;
+            font-weight: 500; letter-spacing: 0.06em;
+            text-transform: uppercase; border-radius: 2px;
+            display: inline-block;
+            transition: background 0.15s;
+        }
+
+        .btn-teal:hover { background: var(--teal-deep); }
+
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; background: none; border: none;
+        }
+
+        .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.25s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .mobile-menu {
+            display: none; position: fixed;
+            top: 88px; left: 0; right: 0;
+            background: #0a0a0a;
+            border-bottom: 1px solid var(--border-teal);
+            padding: 24px 40px 32px; z-index: 199;
+            flex-direction: column;
+        }
+
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a { color: rgba(255,255,255,0.7); font-size: 14px; padding: 13px 0; border-bottom: 1px solid var(--border-dim); display: block; letter-spacing: 0.06em; text-transform: uppercase; }
+        .mobile-menu a:hover { color: var(--teal); }
+        .mobile-menu .btn-teal { margin-top: 18px; text-align: center; border: none; }
+
+        /* ── HERO ────────────────────────────────────── */
+        #hero {
+            background: transparent;
+            padding: 88px 0 0;
+            position: relative; overflow: hidden; z-index: 1;
+        }
+
+        .hero-inner {
+            display: grid; grid-template-columns: 1fr 460px;
+            gap: 60px; align-items: end;
+            position: relative; z-index: 1;
+        }
+
+        .hero-content { padding-bottom: 88px; }
+
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 12px;
+            font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--teal); margin-bottom: 28px;
+            font-weight: 400;
+        }
+
+        .hero-eyebrow::before, .hero-eyebrow::after {
+            content: ''; display: block;
+            width: 28px; height: 1px; background: var(--teal);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 5.5vw, 70px);
+            font-weight: 700; line-height: 1.05;
+            color: var(--white); margin-bottom: 16px;
+        }
+
+        .hero-title em {
+            font-style: italic; color: var(--teal);
+        }
+
+        .hero-sub {
+            font-size: 17px; color: rgba(255,255,255,0.5);
+            max-width: 480px; margin-bottom: 44px; line-height: 1.8;
+        }
+
+        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+        .btn-teal-solid {
+            background: var(--teal); color: var(--white);
+            padding: 15px 34px; font-size: 14px; font-weight: 500;
+            letter-spacing: 0.07em; text-transform: uppercase;
+            border-radius: 2px; display: inline-block;
+            transition: background 0.15s;
+        }
+
+        .btn-teal-solid:hover { background: var(--teal-deep); }
+
+        .btn-outline-teal {
+            border: 1.5px solid var(--teal); color: var(--teal);
+            padding: 15px 34px; font-size: 14px; font-weight: 500;
+            letter-spacing: 0.07em; text-transform: uppercase;
+            border-radius: 2px; display: inline-block;
+            transition: all 0.15s;
+        }
+
+        .btn-outline-teal:hover { background: var(--teal); color: var(--white); }
+
+        .hero-panel {
+            align-self: end;
+            border-top: 3px solid var(--teal);
+            background: #0d0d0d;
+        }
+
+        .hero-panel-top {
+            background: var(--teal);
+            padding: 32px 36px;
+        }
+
+        .hero-panel-top h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px; font-weight: 600;
+            color: var(--white); margin-bottom: 5px;
+        }
+
+        .hero-panel-top p {
+            font-size: 13px; color: rgba(255,255,255,0.75);
+            letter-spacing: 0.06em; text-transform: uppercase;
+        }
+
+        .hero-panel-body { padding: 8px 0; }
+
+        .hero-stat-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 36px;
+            border-bottom: 1px solid var(--border-dim);
+        }
+
+        .hero-stat-row:last-child { border-bottom: none; }
+
+        .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.4); }
+        .hero-stat-value { font-size: 14px; font-weight: 500; color: var(--white); }
+
+        /* ── STATS BAR ───────────────────────────────── */
+        #stats-bar { background: var(--teal); position: relative; z-index: 1; }
+
+        .stats-inner {
+            display: flex; justify-content: space-evenly; align-items: stretch;
+        }
+
+        .stat-item {
+            flex: 1; text-align: center; padding: 24px 16px;
+            border-right: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .stat-item:last-child { border-right: none; }
+
+        .stat-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(18px, 2vw, 26px);
+            font-weight: 700; color: var(--white); line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 10px; font-weight: 400;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            color: rgba(255,255,255,0.7); margin-top: 5px;
+        }
+
+        /* ── MEDIA BAR ───────────────────────────────── */
+        #media-bar {
+            background: rgba(13,13,13,0.82);
+            border-bottom: 1px solid var(--border-dim);
+            padding: 24px 0;
+            position: relative; z-index: 1;
+        }
+
+        .media-inner {
+            display: flex; align-items: center;
+            justify-content: space-evenly; gap: 32px; flex-wrap: wrap;
+        }
+
+        .media-label {
+            font-size: 10px; letter-spacing: 0.18em;
+            text-transform: uppercase; color: rgba(255,255,255,0.25);
+            white-space: nowrap;
+        }
+
+        .media-logos { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; justify-content: center; }
+
+        .media-logo {
+            font-size: 13px; font-weight: 600;
+            letter-spacing: 0.06em; color: rgba(255,255,255,0.2);
+            text-transform: uppercase; transition: color 0.15s;
+        }
+
+        .media-logo:hover { color: var(--teal); }
+
+        /* ── INTRO ───────────────────────────────────── */
+        #intro {
+            background: rgba(8,8,8,0.82);
+            padding: 96px 0;
+            border-top: 1px solid var(--border-dim);
+            position: relative; z-index: 1;
+        }
+
+        .intro-inner {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 80px; align-items: center;
+        }
+
+        .intro-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 3.5vw, 50px);
+            font-weight: 700; color: var(--white); margin-bottom: 8px;
+        }
+
+        .intro-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(18px, 2vw, 26px);
+            font-style: italic; color: var(--teal);
+            margin-bottom: 28px;
+        }
+
+        .intro-content p {
+            font-size: 16px; color: rgba(255,255,255,0.5);
+            line-height: 1.85; margin-bottom: 16px;
+        }
+
+        .btn-dark {
+            display: inline-block; margin-top: 16px;
+            background: var(--teal); color: var(--white);
+            padding: 14px 32px; font-size: 13px; font-weight: 500;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            border-radius: 2px; transition: background 0.15s;
+        }
+
+        .btn-dark:hover { background: var(--teal-deep); }
+
+        .intro-stat-box {
+            background: #141414;
+            border: 1px solid var(--border-teal);
+            padding: 44px;
+        }
+
+        .intro-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 54px; font-weight: 700;
+            color: var(--teal); line-height: 1; margin-bottom: 8px;
+        }
+
+        .intro-stat-label {
+            font-size: 12px; letter-spacing: 0.14em;
+            text-transform: uppercase; color: rgba(255,255,255,0.4);
+            margin-bottom: 32px;
+        }
+
+        .intro-awards {
+            display: flex; gap: 12px; flex-wrap: wrap;
+        }
+
+        .award-badge {
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 14px 16px; text-align: center; min-width: 90px;
+        }
+
+        .award-badge strong {
+            display: block; font-size: 20px;
+            color: var(--teal); font-family: 'Playfair Display', serif;
+        }
+
+        .award-badge span { font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
+
+        /* ── ATTORNEY ────────────────────────────────── */
+        #attorney {
+            background: rgba(0,0,0,0.82);
+            padding: 96px 0;
+            position: relative; z-index: 1;
+        }
+
+        .attorney-inner {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 0; align-items: stretch;
+        }
+
+        .attorney-photo {
+            position: relative; overflow: hidden;
+        }
+
+        .attorney-photo img {
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: center top;
+            display: block;
+            filter: contrast(1.05) brightness(0.95);
+        }
+
+        .attorney-content {
+            padding: 64px 60px;
+            background: #0a0a0a;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+
+        .section-label {
+            font-size: 10px; letter-spacing: 0.22em;
+            text-transform: uppercase; color: var(--teal);
+            margin-bottom: 20px;
+            display: flex; align-items: center; gap: 12px;
+        }
+
+        .section-label::after {
+            content: ''; display: block; flex: 1;
+            height: 1px; background: var(--border-teal);
+        }
+
+        .attorney-content h2 {
+            font-size: clamp(26px, 3vw, 42px);
+            color: var(--white); margin-bottom: 20px;
+        }
+
+        .attorney-content p {
+            font-size: 15px; color: rgba(255,255,255,0.5);
+            line-height: 1.85; margin-bottom: 14px;
+        }
+
+        .cred-list {
+            list-style: none; margin: 28px 0 36px;
+            display: flex; flex-direction: column; gap: 14px;
+        }
+
+        .cred-list li {
+            display: flex; align-items: flex-start; gap: 12px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border-dim);
+            font-size: 14px; color: rgba(255,255,255,0.7);
+        }
+
+        .cred-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .cred-check {
+            width: 20px; height: 20px; flex-shrink: 0;
+            background: var(--teal-light); border: 1px solid var(--border-teal);
+            display: flex; align-items: center; justify-content: center;
+            margin-top: 2px;
+        }
+
+        .cred-check svg { width: 11px; height: 11px; stroke: var(--teal); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+        /* ── PRACTICE AREAS ──────────────────────────── */
+        #practice {
+            background: rgba(8,8,8,0.82);
+            padding: 96px 0;
+            position: relative; z-index: 1;
+        }
+
+        .section-header {
+            text-align: center; margin-bottom: 64px;
+        }
+
+        .section-header .section-label {
+            justify-content: center; margin-bottom: 16px;
+        }
+
+        .section-header .section-label::before {
+            content: ''; display: block; width: 36px;
+            height: 1px; background: var(--border-teal);
+        }
+
+        .section-header .section-label::after { width: 36px; }
+
+        .section-header h2 {
+            font-size: clamp(28px, 3.5vw, 46px);
+            color: var(--white); margin-bottom: 16px;
+        }
+
+        .section-header p { font-size: 15px; color: var(--stone); max-width: 520px; margin: 0 auto; }
+
+        .practice-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .practice-card {
+            background: var(--dark-card);
+            padding: 40px 32px;
+            border: 1px solid var(--border-dim);
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .practice-card:hover {
+            background: #121212; border-color: var(--border-teal);
+        }
+
+        .practice-card-icon {
+            width: 44px; height: 44px;
+            background: var(--teal-light); border: 1px solid var(--border-teal);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .practice-card-icon svg { width: 20px; height: 20px; stroke: var(--teal); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+        .practice-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px; font-weight: 600;
+            color: var(--white); margin-bottom: 10px;
+            text-transform: uppercase; letter-spacing: 0.06em;
+        }
+
+        .practice-card p { font-size: 14px; color: var(--stone); line-height: 1.75; }
+
+        .practice-card-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-top: 18px; font-size: 12px;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--teal); font-weight: 500;
+            transition: gap 0.15s;
+        }
+
+        .practice-card-link:hover { gap: 10px; }
+
+        /* ── INSIGHTS BAND ───────────────────────────── */
+        #insights {
+            background: rgba(0,0,0,0.82);
+            padding: 72px 0;
+            position: relative; z-index: 1;
+            border-top: 1px solid var(--border-teal);
+            border-bottom: 1px solid var(--border-teal);
+        }
+
+        .insights-inner {
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 40px; flex-wrap: wrap;
+        }
+
+        .insights-text h2 {
+            font-size: clamp(26px, 3vw, 40px);
+            color: var(--white); margin-bottom: 8px;
+        }
+
+        .insights-text p { font-size: 15px; color: var(--stone); max-width: 480px; }
+
+        .insights-link {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-size: 13px; font-weight: 500;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--teal); white-space: nowrap;
+            transition: gap 0.15s;
+        }
+
+        .insights-link::after { content: '→'; font-size: 16px; }
+        .insights-link:hover { gap: 14px; }
+
+        /* ── TESTIMONIALS ────────────────────────────── */
+        #testimonials {
+            background: rgba(4,4,4,0.82); padding: 96px 0;
+            position: relative; z-index: 1;
+        }
+
+        .testi-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 2px; margin-top: 64px;
+        }
+
+        .testi-card {
+            background: var(--dark-card); padding: 40px 32px;
+            border: 1px solid var(--border-dim);
+        }
+
+        .testi-stars { display: flex; gap: 3px; margin-bottom: 18px; }
+        .testi-stars span { color: var(--teal); font-size: 15px; }
+
+        .testi-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px; font-style: italic;
+            color: rgba(255,255,255,0.75); line-height: 1.75; margin-bottom: 24px;
+        }
+
+        .testi-author {
+            font-size: 12px; color: var(--teal);
+            letter-spacing: 0.08em; text-transform: uppercase;
+        }
+
+        /* ── CONTACT CTA ─────────────────────────────── */
+        #contact-cta {
+            background: var(--teal); padding: 80px 0;
+            position: relative; z-index: 1;
+        }
+
+        .cta-inner {
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 48px; flex-wrap: wrap;
+        }
+
+        .cta-inner h2 {
+            font-size: clamp(28px, 3.2vw, 46px);
+            color: var(--white); line-height: 1.15; margin-bottom: 10px;
+        }
+
+        .cta-inner p { font-size: 16px; color: rgba(255,255,255,0.72); max-width: 400px; }
+
+        .btn-white-solid {
+            background: var(--white); color: var(--teal);
+            padding: 16px 38px; font-size: 14px; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            border-radius: 2px; display: inline-block; white-space: nowrap;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .btn-white-solid:hover { background: var(--charcoal); color: var(--white); }
+
+        /* ── FOOTER ──────────────────────────────────── */
+        footer {
+            background: rgba(5,5,5,0.92); padding: 72px 0 32px;
+            position: relative; z-index: 1;
+            border-top: 1px solid var(--border-teal);
+        }
+
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px; padding-bottom: 48px;
+            border-bottom: 1px solid var(--border-dim);
+            margin-bottom: 32px;
+        }
+
+        /* Footer logo */
+        .footer-logo {
+            display: inline-flex; align-items: center; gap: 12px;
+            margin-bottom: 20px; text-decoration: none;
+            padding: 16px 0;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .footer-logo svg { width: 42px; height: 42px; display: block; flex-shrink: 0; }
+
+        .footer-logo-text { display: flex; flex-direction: column; gap: 2px; }
+
+        .footer-logo-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px; font-weight: 700;
+            color: var(--white); line-height: 1;
+        }
+
+        .footer-logo-tagline {
+            font-size: 10px; font-weight: 300;
+            letter-spacing: 0.16em; text-transform: uppercase;
+            color: rgba(255,255,255,0.4); line-height: 1.5;
+        }
+
+        .footer-brand p {
+            font-size: 13px; color: var(--stone); line-height: 1.75;
+            max-width: 270px; margin-top: 16px;
+        }
+
+        .footer-col h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px; font-weight: 600;
+            letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--teal); margin-bottom: 20px;
+        }
+
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+        .footer-links a { font-size: 13px; color: var(--stone); transition: color 0.15s; }
+        .footer-links a:hover { color: var(--teal); }
+
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 14px;
+        }
+
+        .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+        .footer-disclaimer {
+            font-size: 11px; color: rgba(255,255,255,0.13);
+            max-width: 700px; line-height: 1.6;
+            text-align: center; margin: 24px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-dim);
+        }
+
+        /* ── HERO SHAPES ─────────────────────────────── */
+        .bg-shapes-layer {
+            position: fixed; inset: 0;
+            overflow: hidden; pointer-events: none; z-index: 0;
+        }
+
+        .shape-outer {
+            position: absolute;
+            opacity: 0;
+            will-change: transform, opacity;
+        }
+
+        .shape-inner {
+            position: relative;
+            animation: shapeFloat 12s ease-in-out infinite;
+        }
+
+        .shape-fill {
+            position: absolute; inset: 0;
+            border-radius: 9999px;
+            border: 1.5px solid rgba(255,255,255,0.1);
+            box-shadow: 0 8px 32px 0 rgba(16,155,117,0.1);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+        }
+
+        .shape-fill::after {
+            content: '';
+            position: absolute; inset: 0;
+            border-radius: 9999px;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.14), transparent 70%);
+        }
+
+        @keyframes shapeFloat {
+            0%, 100% { transform: translateY(0px); }
+            50%       { transform: translateY(15px); }
+        }
+
+        /* ── SCROLL ANIMATIONS ───────────────────────── */
+        .anim {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .anim.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Respect reduced-motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .anim { opacity: 1; transform: none; transition: none; }
+        }
+
+        /* ── RESPONSIVE ──────────────────────────────── */
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr 380px; gap: 40px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+        }
+
+        @media (max-width: 860px) {
+            .nav-links, nav > .container > .nav-inner > .btn-teal { display: none; }
+            .nav-cta { display: none; }
+            .hamburger { display: flex; }
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-panel { display: none; }
+            .intro-inner { grid-template-columns: 1fr; gap: 48px; }
+            .attorney-inner { grid-template-columns: 1fr; }
+            .attorney-content { padding: 48px 40px; }
+            .practice-grid { grid-template-columns: repeat(2, 1fr); }
+            .testi-grid { grid-template-columns: 1fr; }
+            .cta-inner { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 20px; }
+            .practice-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .stats-inner { flex-wrap: wrap; }
+            .stat-item { flex: 1 1 45%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── GLOBAL BACKGROUND SHAPES ─────────────────── -->
+<div class="bg-shapes-layer">
+    <!-- Top-left large -->
+    <div class="shape-outer" data-delay="0.3" data-rotate="12" style="left:-8%;top:8%;">
+        <div class="shape-inner" style="width:600px;height:140px;animation-delay:0s;">
+            <div class="shape-fill" style="background:linear-gradient(to right,rgba(16,155,117,0.2),transparent);"></div>
+        </div>
+    </div>
+    <!-- Top-right medium -->
+    <div class="shape-outer" data-delay="0.6" data-rotate="-15" style="right:-4%;top:12%;">
+        <div class="shape-inner" style="width:440px;height:110px;animation-delay:3s;">
+            <div class="shape-fill" style="background:linear-gradient(to right,rgba(29,123,94,0.16),transparent);"></div>
+        </div>
+    </div>
+    <!-- Centre-left -->
+    <div class="shape-outer" data-delay="0.4" data-rotate="8" style="left:5%;top:42%;">
+        <div class="shape-inner" style="width:340px;height:90px;animation-delay:5s;">
+            <div class="shape-fill" style="background:linear-gradient(to right,rgba(16,155,117,0.14),transparent);"></div>
+        </div>
+    </div>
+    <!-- Centre-right -->
+    <div class="shape-outer" data-delay="0.5" data-rotate="-20" style="right:2%;top:48%;">
+        <div class="shape-inner" style="width:500px;height:120px;animation-delay:2s;">
+            <div class="shape-fill" style="background:linear-gradient(to right,rgba(16,155,117,0.17),transparent);"></div>
+        </div>
+    </div>
+    <!-- Lower-left -->
+    <div class="shape-outer" data-delay="0.7" data-rotate="-8" style="left:8%;top:68%;">
+        <div class="shape-inner" style="width:380px;height:90px;animation-delay:7s;">
+            <div class="shape-fill" style="background:linear-gradient(to right,rgba(29,123,94,0.13),transparent);"></div>
+        </div>
+    </div>
+    <!-- Lower-right -->
+    <div class="shape-outer" data-delay="0.8" data-rotate="18" style="right:-2%;top:75%;">
+        <div class="shape-inner" style="width:480px;height:115px;animation-delay:4s;">
+            <div class="shape-fill" style="background:linear-gradient(to right,rgba(16,155,117,0.15),transparent);"></div>
+        </div>
+    </div>
+    <!-- Small accent — top centre -->
+    <div class="shape-outer" data-delay="0.9" data-rotate="22" style="left:38%;top:6%;">
+        <div class="shape-inner" style="width:200px;height:55px;animation-delay:1s;">
+            <div class="shape-fill" style="background:linear-gradient(to right,rgba(16,155,117,0.1),transparent);"></div>
+        </div>
+    </div>
+    <!-- Small accent — bottom centre -->
+    <div class="shape-outer" data-delay="1.0" data-rotate="-12" style="left:32%;top:85%;">
+        <div class="shape-inner" style="width:260px;height:65px;animation-delay:8s;">
+            <div class="shape-fill" style="background:linear-gradient(to right,rgba(16,155,117,0.11),transparent);"></div>
+        </div>
+    </div>
+    <!-- Tiny — scattered -->
+    <div class="shape-outer" data-delay="0.5" data-rotate="-28" style="left:22%;top:28%;">
+        <div class="shape-inner" style="width:150px;height:40px;animation-delay:6s;">
+            <div class="shape-fill" style="background:linear-gradient(to right,rgba(16,155,117,0.08),transparent);"></div>
+        </div>
+    </div>
+    <div class="shape-outer" data-delay="0.7" data-rotate="30" style="right:22%;top:62%;">
+        <div class="shape-inner" style="width:180px;height:48px;animation-delay:9s;">
+            <div class="shape-fill" style="background:linear-gradient(to right,rgba(16,155,117,0.09),transparent);"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ── TOP BAR ────────────────────────────────────── -->
+<div id="topbar">
+    <div class="container">
+        <div class="topbar-inner">
+            <span class="topbar-left">Free Consultations &nbsp;·&nbsp; Fixed-Fee Pricing Available</span>
+            <a href="tel:+4529896547" class="topbar-phone">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16v.92z"/></svg>
+                +45 29896547
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ── NAVBAR ─────────────────────────────────────── -->
+<nav id="navbar">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="23" y1="6" x2="23" y2="41" stroke="#109B75" stroke-width="1.9" stroke-linecap="round"/>
+                        <line x1="7" y1="15" x2="39" y2="15" stroke="#109B75" stroke-width="1.9" stroke-linecap="round"/>
+                        <circle cx="23" cy="15" r="2.4" fill="#109B75"/>
+                        <line x1="19" y1="41" x2="27" y2="41" stroke="#109B75" stroke-width="1.9" stroke-linecap="round"/>
+                        <line x1="7" y1="15" x2="4" y2="25" stroke="#109B75" stroke-width="1.4"/>
+                        <line x1="7" y1="15" x2="14" y2="25" stroke="#109B75" stroke-width="1.4"/>
+                        <path d="M3 25 Q8.5 31 15 25" stroke="#109B75" stroke-width="1.9" stroke-linecap="round" fill="none"/>
+                        <line x1="39" y1="15" x2="32" y2="25" stroke="#109B75" stroke-width="1.4"/>
+                        <line x1="39" y1="15" x2="42" y2="25" stroke="#109B75" stroke-width="1.4"/>
+                        <path d="M31 25 Q37.5 31 43 25" stroke="#109B75" stroke-width="1.9" stroke-linecap="round" fill="none"/>
+                    </svg>
+                </div>
+                <div class="nav-logo-text">
+                    <span class="nav-logo-name">Life Beck</span>
+                    <span class="nav-logo-tagline">Attorney at Law</span>
+                    <span class="nav-logo-tagline">Property Rights</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#practice">Services</a></li>
+                <li><a href="#attorney">About</a></li>
+                <li><a href="#testimonials">Results</a></li>
+                <li><a href="#insights">Insights</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="#contact-cta" class="btn-teal">Book a Consultation</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+    <a href="#practice" onclick="closeMobile()">Services</a>
+    <a href="#attorney" onclick="closeMobile()">About</a>
+    <a href="#testimonials" onclick="closeMobile()">Results</a>
+    <a href="#insights" onclick="closeMobile()">Insights</a>
+    <a href="#contact-cta" class="btn-teal" onclick="closeMobile()">Book a Consultation</a>
+</div>
+
+<!-- ── HERO ───────────────────────────────────────── -->
+<section id="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-eyebrow">Specialist Property Law Firm</div>
+                <h1 class="hero-title">
+                    Property Rights,<br><em>Done Right.</em>
+                </h1>
+                <p class="hero-sub">Life Beck helps individuals and businesses protect, transfer, and defend their property rights with precision, clarity, and authority.</p>
+                <div class="hero-ctas">
+                    <a href="#contact-cta" class="btn-teal-solid">Book a Free Consultation</a>
+                    <a href="#practice" class="btn-outline-teal">View Services</a>
+                </div>
+            </div>
+            <div class="hero-panel">
+                <div class="hero-panel-top">
+                    <h3>Life Beck Law</h3>
+                    <p>Property Rights Counsel</p>
+                </div>
+                <div class="hero-panel-body">
+                    <div class="hero-stat-row">
+                        <span class="hero-stat-label">Experience</span>
+                        <span class="hero-stat-value">15+ Years</span>
+                    </div>
+                    <div class="hero-stat-row">
+                        <span class="hero-stat-label">Cases Resolved</span>
+                        <span class="hero-stat-value">500+</span>
+                    </div>
+                    <div class="hero-stat-row">
+                        <span class="hero-stat-label">Client Satisfaction</span>
+                        <span class="hero-stat-value">98%</span>
+                    </div>
+                    <div class="hero-stat-row">
+                        <span class="hero-stat-label">First Response</span>
+                        <span class="hero-stat-value">Within 4 Hours</span>
+                    </div>
+                    <div class="hero-stat-row">
+                        <span class="hero-stat-label">Fee Structure</span>
+                        <span class="hero-stat-value">Fixed-Fee Available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── STATS BAR ──────────────────────────────────── -->
+<div id="stats-bar">
+    <div class="container">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <div class="stat-amount">15+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-amount">500+</div>
+                <div class="stat-label">Cases Resolved</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-amount">£2B+</div>
+                <div class="stat-label">Property Value Handled</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-amount">98%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-amount">SRA</div>
+                <div class="stat-label">Regulated & Authorised</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── MEDIA BAR ──────────────────────────────────── -->
+<div id="media-bar">
+    <div class="container">
+        <div class="media-inner">
+            <span class="media-label">Recognised By</span>
+            <div class="media-logos">
+                <span class="media-logo">Legal 500</span>
+                <span class="media-logo">Chambers UK</span>
+                <span class="media-logo">The Law Society</span>
+                <span class="media-logo">SRA</span>
+                <span class="media-logo">Property Bar Association</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── INTRO ──────────────────────────────────────── -->
+<section id="intro">
+    <div class="container">
+        <div class="intro-inner">
+            <div class="intro-content">
+                <h2>Life Beck</h2>
+                <p class="intro-tagline">Never Settle for Less Than Your Rights.</p>
+                <p>Life Beck is a specialist property law firm built on a single principle — your property rights deserve expert, unhurried attention. We don't hand your case to a junior associate. You get a senior lawyer, personally.</p>
+                <p>Whether you're acquiring commercial property, defending a title dispute, or transferring an estate, we deliver clear strategy and decisive action at every stage.</p>
+                <a href="#contact-cta" class="btn-dark">Get a Free Consultation</a>
+            </div>
+            <div>
+                <div class="intro-stat-box">
+                    <div class="intro-stat-number">£2B+</div>
+                    <div class="intro-stat-label">Property Value Handled</div>
+                    <div class="intro-awards">
+                        <div class="award-badge">
+                            <strong>15+</strong>
+                            <span>Years</span>
+                        </div>
+                        <div class="award-badge">
+                            <strong>500+</strong>
+                            <span>Cases</span>
+                        </div>
+                        <div class="award-badge">
+                            <strong>SRA</strong>
+                            <span>Regulated</span>
+                        </div>
+                        <div class="award-badge">
+                            <strong>98%</strong>
+                            <span>Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── ATTORNEY ───────────────────────────────────── -->
+<section id="attorney">
+    <div class="container">
+        <div class="attorney-inner">
+            <div class="attorney-photo">
+                <img src="brand_assets/picture of Life Beck.jpg" alt="Life Beck — Attorney at Law">
+            </div>
+            <div class="attorney-content">
+                <div class="section-label">About Life Beck</div>
+                <h2>Your Dedicated<br>Property Rights Partner</h2>
+                <p>With over 15 years of specialist property law practice, Life Beck has built a reputation for taking on complex cases that other firms walk away from — and winning.</p>
+                <p>Every client receives direct access to a senior lawyer from day one. No hand-offs, no surprises, no hidden fees.</p>
+                <ul class="cred-list">
+                    <li>
+                        <span class="cred-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"/></svg></span>
+                        Specialist property law firm — not a generalist practice
+                    </li>
+                    <li>
+                        <span class="cred-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"/></svg></span>
+                        Transparent fixed-fee pricing on all standard matters
+                    </li>
+                    <li>
+                        <span class="cred-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"/></svg></span>
+                        First reply guaranteed within 4 business hours
+                    </li>
+                    <li>
+                        <span class="cred-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"/></svg></span>
+                        Authorised and regulated by the Solicitors Regulation Authority
+                    </li>
+                </ul>
+                <a href="#contact-cta" class="btn-outline-teal">Book a Consultation</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── PRACTICE AREAS ─────────────────────────────── -->
+<section id="practice">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">What We Do</div>
+            <h2>Property Legal Services</h2>
+            <p>From acquisition to dispute resolution, we cover every aspect of property law for individuals and businesses.</p>
+        </div>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <div class="practice-card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 12L12 3L21 12V21H15V15H9V21H3V12Z"/></svg>
+                </div>
+                <h3>Residential Property</h3>
+                <p>Expert guidance through buying, selling, remortgaging, and transferring residential property with minimal stress.</p>
+                <a href="#contact-cta" class="practice-card-link">Learn more →</a>
+            </div>
+            <div class="practice-card">
+                <div class="practice-card-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+                </div>
+                <h3>Commercial Property</h3>
+                <p>Sophisticated legal support for commercial acquisitions, disposals, leases, and investment portfolio management.</p>
+                <a href="#contact-cta" class="practice-card-link">Learn more →</a>
+            </div>
+            <div class="practice-card">
+                <div class="practice-card-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+                </div>
+                <h3>Property Rights Defence</h3>
+                <p>Protecting your ownership through boundary disputes, adverse possession claims, and title challenges.</p>
+                <a href="#contact-cta" class="practice-card-link">Learn more →</a>
+            </div>
+            <div class="practice-card">
+                <div class="practice-card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+                </div>
+                <h3>Property Transfer</h3>
+                <p>Seamless handling of title transfers, gifts of property, inheritance planning, and estate conveyancing.</p>
+                <a href="#contact-cta" class="practice-card-link">Learn more →</a>
+            </div>
+            <div class="practice-card">
+                <div class="practice-card-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg>
+                </div>
+                <h3>Landlord &amp; Tenant</h3>
+                <p>Comprehensive advice on lease agreements, rent disputes, tenant evictions, and landlord obligations.</p>
+                <a href="#contact-cta" class="practice-card-link">Learn more →</a>
+            </div>
+            <div class="practice-card">
+                <div class="practice-card-icon">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                </div>
+                <h3>Development &amp; Planning</h3>
+                <p>Legal support for property development projects, planning permissions, and site acquisition agreements.</p>
+                <a href="#contact-cta" class="practice-card-link">Learn more →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── INSIGHTS BAND ──────────────────────────────── -->
+<section id="insights">
+    <div class="container">
+        <div class="insights-inner">
+            <div class="insights-text">
+                <h2>Legal Insights Club</h2>
+                <p>Free access to our full library of property law guides, case breakdowns, and practical advice for owners and investors.</p>
+            </div>
+            <a href="#" class="insights-link">Access Full Library</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── TESTIMONIALS ───────────────────────────────── -->
+<section id="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Client Results</div>
+            <h2>What Our Clients Say</h2>
+            <p>Real outcomes from individuals and businesses who trusted Life Beck with their property matters.</p>
+        </div>
+        <div class="testi-grid">
+            <div class="testi-card">
+                <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                <p class="testi-quote">"Life Beck resolved a boundary dispute that had been dragging on for two years — in under three months. Their strategic approach made an incredibly stressful situation manageable."</p>
+                <div class="testi-author">— James M., Homeowner</div>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                <p class="testi-quote">"As a developer, I've worked with several property law firms. Life Beck stands apart for their speed, transparency, and commercial understanding. A genuine business partner."</p>
+                <div class="testi-author">— Sarah C., Property Developer</div>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                <p class="testi-quote">"Inherited a complex estate with multiple properties and competing claims. Life Beck handled everything with expertise and sensitivity. Couldn't have navigated it without them."</p>
+                <div class="testi-author">— Rachel T., Estate Beneficiary</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CONTACT CTA ────────────────────────────────── -->
+<section id="contact-cta">
+    <div class="container">
+        <div class="cta-inner">
+            <div>
+                <h2>Ready to Protect<br>Your Property Rights?</h2>
+                <p>Free 30-minute consultation. No obligation. Direct access to a senior property lawyer.</p>
+            </div>
+            <a href="tel:+4529896547" class="btn-white-solid">Call Now — Free Consultation</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────── -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">
+                    <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="23" y1="6" x2="23" y2="41" stroke="#109B75" stroke-width="1.9" stroke-linecap="round"/>
+                        <line x1="7" y1="15" x2="39" y2="15" stroke="#109B75" stroke-width="1.9" stroke-linecap="round"/>
+                        <circle cx="23" cy="15" r="2.4" fill="#109B75"/>
+                        <line x1="19" y1="41" x2="27" y2="41" stroke="#109B75" stroke-width="1.9" stroke-linecap="round"/>
+                        <line x1="7" y1="15" x2="4" y2="25" stroke="#109B75" stroke-width="1.4"/>
+                        <line x1="7" y1="15" x2="14" y2="25" stroke="#109B75" stroke-width="1.4"/>
+                        <path d="M3 25 Q8.5 31 15 25" stroke="#109B75" stroke-width="1.9" stroke-linecap="round" fill="none"/>
+                        <line x1="39" y1="15" x2="32" y2="25" stroke="#109B75" stroke-width="1.4"/>
+                        <line x1="39" y1="15" x2="42" y2="25" stroke="#109B75" stroke-width="1.4"/>
+                        <path d="M31 25 Q37.5 31 43 25" stroke="#109B75" stroke-width="1.9" stroke-linecap="round" fill="none"/>
+                    </svg>
+                    <div class="footer-logo-text">
+                        <span class="footer-logo-name">Life Beck</span>
+                        <span class="footer-logo-tagline">Attorney at Law</span>
+                        <span class="footer-logo-tagline">Property Rights</span>
+                    </div>
+                </a>
+                <p>Specialist property law firm helping individuals and businesses protect, transfer, and defend their property rights.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#practice">Residential Property</a></li>
+                    <li><a href="#practice">Commercial Property</a></li>
+                    <li><a href="#practice">Property Rights Defence</a></li>
+                    <li><a href="#practice">Property Transfer</a></li>
+                    <li><a href="#practice">Landlord &amp; Tenant</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Firm</h4>
+                <ul class="footer-links">
+                    <li><a href="#attorney">About Life Beck</a></li>
+                    <li><a href="#testimonials">Client Results</a></li>
+                    <li><a href="#insights">Legal Insights</a></li>
+                    <li><a href="#contact-cta">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:+4529896547">+45 29896547</a></li>
+                    <li><a href="mailto:LifeLaywer@Beck.com">LifeLaywer@Beck.com</a></li>
+                    <li><a href="#contact-cta">Book a Consultation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Life Beck. All rights reserved.</p>
+            <p>Privacy Policy &nbsp;·&nbsp; Terms of Use &nbsp;·&nbsp; Cookie Policy</p>
+        </div>
+        <p class="footer-disclaimer">Life Beck is authorised and regulated by the Solicitors Regulation Authority. The information on this website is for general informational purposes only and does not constitute legal advice. Past results do not guarantee future outcomes.</p>
+    </div>
+</footer>
+
+<script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+    });
+
+    function closeMobile() {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+    }
+
+    // Site-wide scroll animations
+    (function() {
+        var targets = document.querySelectorAll([
+            '.section-header',
+            '.intro-content',
+            '.intro-stat-box',
+            '.practice-card',
+            '.testi-card',
+            '.award-badge',
+            '.location-card',
+            '.attorney-content h2',
+            '.attorney-content > p',
+            '.cred-list li',
+            '.insights-text',
+            '.insights-link',
+            '.cta-inner > div',
+            '.cta-inner > a',
+            '.footer-brand',
+            '.footer-col'
+        ].join(','));
+
+        targets.forEach(function(el) {
+            el.classList.add('anim');
+            // Stagger siblings in the same parent (grids, lists)
+            var siblings = Array.from(el.parentElement.children).filter(function(c) {
+                return c.classList.contains(el.classList[0]);
+            });
+            if (siblings.length > 1) {
+                el.style.transitionDelay = (siblings.indexOf(el) * 0.1) + 's';
+            }
+        });
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+
+        targets.forEach(function(el) { observer.observe(el); });
+    })();
+
+    // Hero shape entrance — mirrors Framer Motion entrance + float
+    document.querySelectorAll('.shape-outer').forEach(function(shape) {
+        var delay   = parseFloat(shape.dataset.delay  || '0') * 1000;
+        var rotate  = parseFloat(shape.dataset.rotate || '0');
+
+        setTimeout(function() {
+            var anim = shape.animate([
+                { opacity: 0, transform: 'rotate(' + rotate + 'deg) translateY(-150px)' },
+                { opacity: 1, transform: 'rotate(' + rotate + 'deg) translateY(0px)'   }
+            ], {
+                duration: 2400,
+                fill: 'forwards',
+                easing: 'cubic-bezier(0.23, 0.86, 0.39, 0.96)'
+            });
+            anim.onfinish = function() {
+                shape.style.opacity   = '1';
+                shape.style.transform = 'rotate(' + rotate + 'deg)';
+            };
+        }, delay);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                closeMobile();
+                const top = target.getBoundingClientRect().top + window.scrollY - 88;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body>
+</html>

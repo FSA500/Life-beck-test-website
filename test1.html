@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Beck | Attorney at Law — Property Rights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #1A1A1A;
+            --teal: #109B75;
+            --teal-deep: #1D7B5E;
+            --off-white: #F8F6F1;
+            --white: #FFFFFF;
+            --stone: #8E8780;
+            --border: #E8E4DD;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--charcoal);
+            font-family: 'DM Sans', system-ui, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--charcoal);
+            line-height: 1.2;
+        }
+
+        h1 { font-size: clamp(38px, 5.5vw, 56px); font-weight: 700; }
+        h2 { font-size: clamp(28px, 3.8vw, 38px); font-weight: 600; }
+        h3 { font-size: clamp(19px, 2.2vw, 24px); font-weight: 600; }
+
+        p { color: var(--stone); line-height: 1.75; }
+
+        .label {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--stone);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 3px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.15s;
+            border: 2px solid transparent;
+        }
+
+        .btn:active { transform: scale(0.98); }
+
+        .btn-primary { background: var(--teal); color: var(--white); border-color: var(--teal); }
+        .btn-primary:hover { background: var(--teal-deep); border-color: var(--teal-deep); }
+
+        .btn-secondary { background: transparent; color: var(--teal); border-color: var(--teal); }
+        .btn-secondary:hover { background: var(--teal); color: var(--white); }
+
+        .btn-ghost { background: transparent; color: var(--charcoal); border-color: rgba(26,26,26,0.25); }
+        .btn-ghost:hover { border-color: var(--charcoal); }
+
+        .btn-white { background: var(--white); color: var(--teal); border-color: var(--white); }
+        .btn-white:hover { background: transparent; color: var(--white); }
+
+        .btn-white-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+        .btn-white-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+        .container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+
+        section { padding: 96px 0; }
+
+        /* ── NAV ─────────────────────────────────────────── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.2s;
+        }
+
+        nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+
+        .nav-inner {
+            display: flex; align-items: center;
+            justify-content: space-between;
+            height: 88px;
+        }
+
+        .nav-logo img { height: 80px; width: auto; display: block; }
+
+        .nav-logo-html {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon svg { width: 44px; height: 44px; display: block; }
+
+        .nav-logo-text { display: flex; flex-direction: column; gap: 2px; }
+
+        .nav-logo-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 26px; font-weight: 700;
+            color: var(--charcoal); line-height: 1;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-logo-tagline {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px; font-weight: 400;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--stone); line-height: 1.5;
+        }
+
+        .nav-links {
+            display: flex; align-items: center;
+            gap: 40px; list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 15px; color: var(--charcoal);
+            text-decoration: none; font-weight: 400;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover { color: var(--teal); }
+
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; background: none; border: none; padding: 4px;
+        }
+
+        .hamburger span {
+            display: block; width: 22px; height: 2px;
+            background: var(--charcoal); border-radius: 2px;
+            transition: all 0.25s;
+        }
+
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .mobile-menu {
+            display: none; position: fixed;
+            top: 88px; left: 0; right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 40px 32px;
+            z-index: 199;
+            flex-direction: column; gap: 0;
+        }
+
+        .mobile-menu.open { display: flex; }
+
+        .mobile-menu a {
+            color: var(--charcoal); text-decoration: none;
+            font-size: 16px; padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            display: block;
+        }
+
+        .mobile-menu a.btn {
+            margin-top: 20px; text-align: center;
+            border-bottom: none; padding: 14px 28px;
+        }
+
+        /* ── HERO ────────────────────────────────────────── */
+        #hero {
+            background: var(--off-white);
+            padding-top: 176px;
+            padding-bottom: 96px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-eyebrow { margin-bottom: 20px; }
+
+        .hero-title { margin-bottom: 24px; }
+
+        .hero-subtitle {
+            font-size: 18px; margin-bottom: 40px;
+            max-width: 460px; line-height: 1.7;
+        }
+
+        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+        .hero-panel {
+            background: var(--white);
+            border-radius: 6px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+            overflow: hidden;
+        }
+
+        .hero-panel-top {
+            background: var(--teal);
+            padding: 32px;
+            text-align: center;
+        }
+
+        .scales-svg { width: 64px; height: 64px; display: block; margin: 0 auto 16px; }
+
+        .hero-panel-top h3 {
+            color: var(--white);
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .hero-panel-top p {
+            color: rgba(255,255,255,0.75);
+            font-size: 14px;
+        }
+
+        .hero-panel-body { padding: 28px 32px; }
+
+        .hero-stat-row {
+            display: flex; justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-stat-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .hero-stat-row:first-child { padding-top: 0; }
+
+        .hero-stat-label { font-size: 14px; color: var(--stone); }
+        .hero-stat-value { font-size: 14px; font-weight: 500; color: var(--charcoal); }
+
+        /* ── TRUST BAR ───────────────────────────────────── */
+        #trust-bar {
+            background: var(--charcoal);
+            padding: 0;
+        }
+
+        .trust-inner {
+            display: flex; justify-content: space-evenly; align-items: center;
+            padding: 44px 0; flex-wrap: wrap; gap: 24px;
+        }
+
+        .trust-stat { text-align: center; }
+
+        .trust-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px; font-weight: 700;
+            color: var(--teal); line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .trust-label {
+            font-size: 12px; letter-spacing: 0.12em;
+            text-transform: uppercase; color: rgba(255,255,255,0.55);
+        }
+
+        .trust-sep { width: 1px; height: 52px; background: rgba(255,255,255,0.1); }
+
+        /* ── SERVICES ────────────────────────────────────── */
+        #services { background: var(--white); }
+
+        .section-header {
+            text-align: center; margin-bottom: 64px;
+        }
+
+        .section-header .label { display: block; margin-bottom: 14px; }
+        .section-header h2 { margin-bottom: 16px; }
+        .section-header p { max-width: 520px; margin: 0 auto; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--off-white);
+            border-radius: 6px;
+            padding: 36px 28px 32px;
+            border: 1px solid transparent;
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+
+        .service-card:hover {
+            border-color: rgba(16,155,117,0.2);
+            box-shadow: 0 6px 28px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+
+        .service-icon {
+            width: 48px; height: 48px;
+            background: rgba(16,155,117,0.1);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 22px;
+        }
+
+        .service-icon svg { width: 22px; height: 22px; stroke: var(--teal); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+        .service-card h3 { font-size: 19px; margin-bottom: 10px; }
+
+        .service-card p { font-size: 14px; margin-bottom: 20px; }
+
+        .service-link {
+            color: var(--teal); font-size: 13px; font-weight: 500;
+            text-decoration: none; letter-spacing: 0.03em;
+            display: inline-flex; align-items: center; gap: 6px;
+            transition: gap 0.18s;
+        }
+
+        .service-link:hover { gap: 10px; }
+
+        /* ── ABOUT ───────────────────────────────────────── */
+        #about { background: var(--off-white); }
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-visual { position: relative; }
+
+        .about-photo {
+            background: var(--white);
+            border-radius: 6px;
+            aspect-ratio: 4/5;
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .photo-placeholder {
+            display: flex; flex-direction: column; align-items: center;
+            gap: 12px; opacity: 0.35;
+        }
+
+        .about-badge {
+            position: absolute; bottom: -20px; right: -20px;
+            background: var(--teal); color: var(--white);
+            padding: 22px 26px; border-radius: 6px; text-align: center;
+            box-shadow: 0 6px 24px rgba(16,155,117,0.35);
+        }
+
+        .about-badge strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 34px; line-height: 1;
+        }
+
+        .about-badge span { font-size: 13px; opacity: 0.88; }
+
+        .about-content .label { display: block; margin-bottom: 14px; }
+        .about-content h2 { margin-bottom: 20px; }
+        .about-content > p { margin-bottom: 20px; font-size: 16px; }
+
+        .creds { list-style: none; margin: 28px 0 36px; }
+
+        .creds li {
+            display: flex; align-items: flex-start; gap: 12px;
+            padding: 13px 0; border-bottom: 1px solid var(--border);
+            font-size: 15px; color: var(--charcoal);
+        }
+
+        .creds li:first-child { border-top: 1px solid var(--border); }
+
+        .check { color: var(--teal); flex-shrink: 0; margin-top: 3px; }
+
+        /* ── PROCESS ─────────────────────────────────────── */
+        #process { background: var(--white); }
+
+        .process-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 32px; margin-top: 64px;
+        }
+
+        .process-step { text-align: center; position: relative; }
+
+        .step-num {
+            width: 56px; height: 56px;
+            background: rgba(16,155,117,0.08);
+            border: 1.5px solid rgba(16,155,117,0.2);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 22px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px; font-weight: 700; color: var(--teal);
+            position: relative; z-index: 1;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute; top: 27px; left: 50%;
+            width: 100%; height: 1.5px;
+            background: var(--border); z-index: 0;
+        }
+
+        .process-step:last-child::after { display: none; }
+
+        .process-step h3 { font-size: 18px; margin-bottom: 10px; }
+        .process-step p { font-size: 14px; }
+
+        /* ── TESTIMONIALS ────────────────────────────────── */
+        #testimonials { background: var(--off-white); }
+
+        .testi-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .testi-card {
+            background: var(--white);
+            border-radius: 6px; padding: 36px 28px;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.04);
+        }
+
+        .stars { display: flex; gap: 3px; margin-bottom: 18px; }
+        .star { color: var(--teal); font-size: 17px; }
+
+        .testi-quote {
+            font-size: 15px; color: var(--charcoal);
+            font-style: italic; line-height: 1.8; margin-bottom: 24px;
+        }
+
+        .testi-author { display: flex; align-items: center; gap: 12px; }
+
+        .avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: var(--off-white); border: 1.5px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 16px; font-weight: 700; color: var(--teal);
+            flex-shrink: 0;
+        }
+
+        .author-name { font-size: 15px; font-weight: 500; color: var(--charcoal); }
+        .author-role { font-size: 13px; color: var(--stone); }
+
+        /* ── CTA BAND ────────────────────────────────────── */
+        #cta-band { background: var(--teal); padding: 88px 0; }
+
+        .cta-band-inner { text-align: center; }
+        .cta-band-inner h2 { color: var(--white); margin-bottom: 14px; }
+        .cta-band-inner > p {
+            color: rgba(255,255,255,0.78); font-size: 18px;
+            max-width: 480px; margin: 0 auto 40px;
+        }
+
+        .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        /* ── CONTACT ─────────────────────────────────────── */
+        #contact { background: var(--white); }
+
+        .contact-inner {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 80px; align-items: start;
+        }
+
+        .contact-info .label { display: block; margin-bottom: 14px; }
+        .contact-info h2 { margin-bottom: 16px; }
+        .contact-info > p { margin-bottom: 36px; font-size: 16px; }
+
+        .contact-detail {
+            display: flex; align-items: flex-start; gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .contact-icon {
+            width: 40px; height: 40px;
+            background: rgba(16,155,117,0.08);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg { width: 18px; height: 18px; stroke: var(--teal); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+        .contact-detail-text strong { display: block; font-size: 14px; color: var(--charcoal); margin-bottom: 2px; }
+        .contact-detail-text span { font-size: 14px; color: var(--stone); }
+
+        .form { display: flex; flex-direction: column; gap: 20px; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+        .form-group { display: flex; flex-direction: column; gap: 7px; }
+
+        .form-group label {
+            font-size: 12px; font-weight: 500; color: var(--charcoal);
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 13px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: 3px;
+            font-size: 15px;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--charcoal);
+            background: var(--off-white);
+            outline: none;
+            transition: border-color 0.15s;
+            width: 100%;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: #C4BFB9; }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { border-color: var(--teal); }
+
+        .form-group select { appearance: none; cursor: pointer; color: var(--stone); }
+
+        .form-group textarea { resize: vertical; min-height: 120px; }
+
+        .form-note {
+            font-size: 13px; text-align: center;
+        }
+
+        .form-note a { color: var(--teal); text-decoration: none; }
+
+        /* ── FOOTER ──────────────────────────────────────── */
+        footer {
+            background: var(--charcoal);
+            padding: 72px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px; padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 32px;
+        }
+
+        .footer-logo-html {
+            display: inline-flex; align-items: center; gap: 12px;
+            margin-bottom: 20px; text-decoration: none;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 16px 0;
+        }
+
+        .footer-logo-html svg { width: 48px; height: 48px; display: block; flex-shrink: 0; }
+
+        .footer-logo-text { display: flex; flex-direction: column; gap: 3px; }
+
+        .footer-logo-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 26px; font-weight: 700;
+            color: var(--white); line-height: 1;
+        }
+
+        .footer-logo-tagline {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px; font-weight: 300;
+            letter-spacing: 0.16em; text-transform: uppercase;
+            color: rgba(255,255,255,0.5); line-height: 1.5;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px; line-height: 1.7;
+            max-width: 260px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 15px; font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.5); font-size: 14px;
+            text-decoration: none; transition: color 0.15s;
+        }
+
+        .footer-links a:hover { color: var(--teal); }
+
+        .footer-contact { display: flex; flex-direction: column; gap: 12px; }
+
+        .fc-item {
+            display: flex; align-items: flex-start; gap: 10px;
+            color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.5;
+        }
+
+        .fc-item svg { flex-shrink: 0; margin-top: 2px; }
+
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 14px;
+        }
+
+        .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 13px; }
+
+        .footer-bottom-links { display: flex; gap: 24px; }
+
+        .footer-bottom-links a {
+            color: rgba(255,255,255,0.3); font-size: 13px;
+            text-decoration: none; transition: color 0.15s;
+        }
+
+        .footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
+
+        /* ── RESPONSIVE ──────────────────────────────────── */
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr 380px; gap: 56px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+        }
+
+        @media (max-width: 840px) {
+            section { padding: 72px 0; }
+            .nav-links, .nav-cta { display: none; }
+            .hamburger { display: flex; }
+            .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+            .hero-panel { max-width: 400px; }
+            .hero-visual { order: -1; }
+            .about-inner { grid-template-columns: 1fr; gap: 64px; }
+            .about-visual { max-width: 360px; margin: 0 auto; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-step::after { display: none; }
+            .testi-grid { grid-template-columns: 1fr; }
+            .contact-inner { grid-template-columns: 1fr; gap: 56px; }
+            .trust-sep { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 20px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .form-row { grid-template-columns: 1fr; }
+            .hero-ctas { flex-direction: column; }
+            .hero-ctas .btn { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ─────────────────────────────────── -->
+<nav id="navbar">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo-html">
+                <div class="nav-logo-icon">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="22" y1="6" x2="22" y2="40" stroke="#109B75" stroke-width="1.8" stroke-linecap="round"/>
+                        <line x1="7" y1="14" x2="37" y2="14" stroke="#109B75" stroke-width="1.8" stroke-linecap="round"/>
+                        <circle cx="22" cy="14" r="2.2" fill="#109B75"/>
+                        <line x1="18" y1="40" x2="26" y2="40" stroke="#109B75" stroke-width="1.8" stroke-linecap="round"/>
+                        <!-- Left pan strings -->
+                        <line x1="7" y1="14" x2="4" y2="24" stroke="#109B75" stroke-width="1.3"/>
+                        <line x1="7" y1="14" x2="13" y2="24" stroke="#109B75" stroke-width="1.3"/>
+                        <!-- Left pan -->
+                        <path d="M3 24 Q8.5 29 14 24" stroke="#109B75" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                        <!-- Right pan strings -->
+                        <line x1="37" y1="14" x2="31" y2="24" stroke="#109B75" stroke-width="1.3"/>
+                        <line x1="37" y1="14" x2="40" y2="24" stroke="#109B75" stroke-width="1.3"/>
+                        <!-- Right pan -->
+                        <path d="M30 24 Q35.5 29 41 24" stroke="#109B75" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                    </svg>
+                </div>
+                <div class="nav-logo-text">
+                    <span class="nav-logo-name">Life Beck</span>
+                    <span class="nav-logo-tagline">Attorney at Law</span>
+                    <span class="nav-logo-tagline">Property Rights</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#process">Our Process</a></li>
+                <li><a href="#testimonials">Results</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#process" onclick="closeMobile()">Our Process</a>
+    <a href="#testimonials" onclick="closeMobile()">Results</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <a href="#contact" class="btn btn-primary" onclick="closeMobile()">Book a Consultation</a>
+</div>
+
+<!-- ── HERO ───────────────────────────────────────── -->
+<section id="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div>
+                <p class="label hero-eyebrow">Attorney at Law &nbsp;·&nbsp; Property Rights</p>
+                <h1 class="hero-title">Property Rights,<br>Done Right.</h1>
+                <p class="hero-subtitle">We specialise in helping individuals and businesses protect, transfer, and defend their property rights with precision and clarity.</p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn btn-primary">Book a Free Consultation</a>
+                    <a href="#services" class="btn btn-secondary">View Services</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-panel">
+                    <div class="hero-panel-top">
+                        <svg class="scales-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="32" y1="8" x2="32" y2="56" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="10" y1="20" x2="54" y2="20" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="32" cy="20" r="3" fill="rgba(255,255,255,0.9)"/>
+                            <line x1="26" y1="56" x2="38" y2="56" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
+                            <!-- Left pan strings -->
+                            <line x1="10" y1="20" x2="6" y2="34" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+                            <line x1="10" y1="20" x2="18" y2="34" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+                            <!-- Left pan -->
+                            <path d="M4 34 Q12 40 20 34" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" fill="none"/>
+                            <!-- Right pan strings -->
+                            <line x1="54" y1="20" x2="46" y2="34" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+                            <line x1="54" y1="20" x2="58" y2="34" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+                            <!-- Right pan -->
+                            <path d="M44 34 Q52 40 60 34" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <h3>Life Beck Law</h3>
+                        <p>Specialist Property Rights Counsel</p>
+                    </div>
+                    <div class="hero-panel-body">
+                        <div class="hero-stat-row">
+                            <span class="hero-stat-label">Experience</span>
+                            <span class="hero-stat-value">15+ Years</span>
+                        </div>
+                        <div class="hero-stat-row">
+                            <span class="hero-stat-label">Cases Resolved</span>
+                            <span class="hero-stat-value">500+</span>
+                        </div>
+                        <div class="hero-stat-row">
+                            <span class="hero-stat-label">Client Satisfaction</span>
+                            <span class="hero-stat-value">98%</span>
+                        </div>
+                        <div class="hero-stat-row">
+                            <span class="hero-stat-label">First Response</span>
+                            <span class="hero-stat-value">Within 4 Hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── TRUST BAR ───────────────────────────────────── -->
+<div id="trust-bar">
+    <div class="container">
+        <div class="trust-inner">
+            <div class="trust-stat">
+                <div class="trust-number">15+</div>
+                <div class="trust-label">Years Experience</div>
+            </div>
+            <div class="trust-sep"></div>
+            <div class="trust-stat">
+                <div class="trust-number">500+</div>
+                <div class="trust-label">Cases Resolved</div>
+            </div>
+            <div class="trust-sep"></div>
+            <div class="trust-stat">
+                <div class="trust-number">98%</div>
+                <div class="trust-label">Client Satisfaction</div>
+            </div>
+            <div class="trust-sep"></div>
+            <div class="trust-stat">
+                <div class="trust-number">£2B+</div>
+                <div class="trust-label">Property Value Handled</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── SERVICES ────────────────────────────────────── -->
+<section id="services">
+    <div class="container">
+        <div class="section-header">
+            <span class="label">What We Do</span>
+            <h2>Comprehensive Property<br>Legal Services</h2>
+            <p>From acquisition to dispute resolution, we cover every aspect of property law for individuals and businesses.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 12L12 3L21 12V21H15V15H9V21H3V12Z"/></svg>
+                </div>
+                <h3>Residential Property</h3>
+                <p>Expert guidance through buying, selling, remortgaging, and transferring residential property with minimal stress.</p>
+                <a href="#contact" class="service-link">Book a consultation →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+                </div>
+                <h3>Commercial Property</h3>
+                <p>Sophisticated legal support for commercial acquisitions, disposals, leases, and investment portfolio management.</p>
+                <a href="#contact" class="service-link">Book a consultation →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+                </div>
+                <h3>Property Rights Defence</h3>
+                <p>Protecting your ownership rights through boundary disputes, adverse possession claims, and title challenges.</p>
+                <a href="#contact" class="service-link">Book a consultation →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+                </div>
+                <h3>Property Transfer</h3>
+                <p>Seamless handling of title transfers, gifts of property, inheritance planning, and estate conveyancing.</p>
+                <a href="#contact" class="service-link">Book a consultation →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg>
+                </div>
+                <h3>Landlord &amp; Tenant</h3>
+                <p>Comprehensive advice on lease agreements, rent disputes, tenant evictions, and landlord obligations.</p>
+                <a href="#contact" class="service-link">Book a consultation →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                </div>
+                <h3>Development &amp; Planning</h3>
+                <p>Legal support for property development projects, planning permissions, and site acquisition agreements.</p>
+                <a href="#contact" class="service-link">Book a consultation →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── ABOUT ───────────────────────────────────────── -->
+<section id="about">
+    <div class="container">
+        <div class="about-inner">
+            <div class="about-visual">
+                <div class="about-photo">
+                    <img src="brand_assets/picture of Life Beck.jpg" alt="Life Beck — Attorney at Law" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
+                </div>
+                <div class="about-badge">
+                    <strong>15+</strong>
+                    <span>Years in<br>Property Law</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="label">About Life Beck</span>
+                <h2>Your Dedicated Property Rights Partner</h2>
+                <p>Life Beck is a specialist property law firm committed to delivering clear, decisive legal advice. We understand that property matters are rarely just legal — they're personal, financial, and often urgent.</p>
+                <p>Our practice is built on a single principle: your property rights deserve expert, unhurried attention. Every client receives direct access to a senior lawyer, never a paralegal.</p>
+                <ul class="creds">
+                    <li>
+                        <svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17L4 12"/></svg>
+                        Specialist property law firm — not a generalist practice
+                    </li>
+                    <li>
+                        <svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17L4 12"/></svg>
+                        Transparent fixed-fee pricing on all standard matters
+                    </li>
+                    <li>
+                        <svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17L4 12"/></svg>
+                        Rapid response — first reply within 4 business hours
+                    </li>
+                    <li>
+                        <svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17L4 12"/></svg>
+                        Authorised and regulated by the Solicitors Regulation Authority
+                    </li>
+                </ul>
+                <a href="#contact" class="btn btn-primary">Book a Free Consultation</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── PROCESS ─────────────────────────────────────── -->
+<section id="process">
+    <div class="container">
+        <div class="section-header">
+            <span class="label">How It Works</span>
+            <h2>From First Contact<br>to Resolution</h2>
+            <p>A clear four-step process designed to keep you informed and in control at every stage.</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-num">01</div>
+                <h3>Initial Consultation</h3>
+                <p>A free 30-minute call to understand your situation, your goals, and the best path forward.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">02</div>
+                <h3>Case Assessment</h3>
+                <p>We review all relevant documents and provide a clear written assessment with options and costs.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">03</div>
+                <h3>Legal Action</h3>
+                <p>We execute your chosen strategy with precision, keeping you updated at every milestone.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">04</div>
+                <h3>Resolution</h3>
+                <p>We secure the best possible outcome and ensure your property rights are properly protected.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── TESTIMONIALS ────────────────────────────────── -->
+<section id="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <span class="label">Client Results</span>
+            <h2>What Our Clients Say</h2>
+            <p>Real outcomes from individuals and businesses who trusted Life Beck with their property matters.</p>
+        </div>
+        <div class="testi-grid">
+            <div class="testi-card">
+                <div class="stars">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="testi-quote">"Life Beck resolved a boundary dispute that had been dragging on for two years — in under three months. Their strategic approach and clear communication made an incredibly stressful situation manageable."</p>
+                <div class="testi-author">
+                    <div class="avatar">JM</div>
+                    <div>
+                        <div class="author-name">James M.</div>
+                        <div class="author-role">Homeowner, London</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="stars">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="testi-quote">"As a developer, I've worked with several property law firms. Life Beck stands apart for their speed, transparency, and commercial understanding. They're a genuine business partner."</p>
+                <div class="testi-author">
+                    <div class="avatar">SC</div>
+                    <div>
+                        <div class="author-name">Sarah C.</div>
+                        <div class="author-role">Property Developer</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="stars">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="testi-quote">"Inherited a complex estate with competing claims. Life Beck handled everything with expertise and sensitivity. I genuinely couldn't have navigated it without them."</p>
+                <div class="testi-author">
+                    <div class="avatar">RT</div>
+                    <div>
+                        <div class="author-name">Rachel T.</div>
+                        <div class="author-role">Estate Beneficiary</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA BAND ────────────────────────────────────── -->
+<section id="cta-band">
+    <div class="container">
+        <div class="cta-band-inner">
+            <h2>Ready to Protect<br>Your Property Rights?</h2>
+            <p>Book a free 30-minute consultation. No obligation. Direct access to a senior property lawyer.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-white">Book a Free Consultation</a>
+                <a href="tel:+4529896547" class="btn btn-white-outline">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16v.92z"/></svg>
+                    Call Us Today
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CONTACT ─────────────────────────────────────── -->
+<section id="contact">
+    <div class="container">
+        <div class="contact-inner">
+            <div class="contact-info">
+                <span class="label">Get In Touch</span>
+                <h2>Book Your Consultation</h2>
+                <p>Complete the form and we'll be in touch within 4 business hours. All enquiries are strictly confidential.</p>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                    </div>
+                    <div class="contact-detail-text">
+                        <strong>Office</strong>
+                        <span>123 Legal Street, London, EC1A 1BB</span>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16v.92z"/></svg>
+                    </div>
+                    <div class="contact-detail-text">
+                        <strong>Phone</strong>
+                        <span>+45 29896547</span>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="contact-detail-text">
+                        <strong>Email</strong>
+                        <span>LifeLaywer@Beck.com</span>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="contact-detail-text">
+                        <strong>Office Hours</strong>
+                        <span>Monday – Friday, 9:00am – 6:00pm</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <form class="form" onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" placeholder="Smith" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="+44 7700 000000">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Required</label>
+                        <select id="service" required>
+                            <option value="" disabled selected>Select a service...</option>
+                            <option>Residential Property</option>
+                            <option>Commercial Property</option>
+                            <option>Property Rights Defence</option>
+                            <option>Property Transfer</option>
+                            <option>Landlord &amp; Tenant</option>
+                            <option>Development &amp; Planning</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Brief Description</label>
+                        <textarea id="message" placeholder="Tell us about your situation..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; font-size:15px; padding:15px;">
+                        Send Enquiry
+                    </button>
+                    <p class="form-note">By submitting this form you agree to our <a href="#">Privacy Policy</a>. All enquiries are strictly confidential.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────── -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo-html">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="22" y1="6" x2="22" y2="40" stroke="#109B75" stroke-width="1.8" stroke-linecap="round"/>
+                        <line x1="7" y1="14" x2="37" y2="14" stroke="#109B75" stroke-width="1.8" stroke-linecap="round"/>
+                        <circle cx="22" cy="14" r="2.2" fill="#109B75"/>
+                        <line x1="18" y1="40" x2="26" y2="40" stroke="#109B75" stroke-width="1.8" stroke-linecap="round"/>
+                        <line x1="7" y1="14" x2="4" y2="24" stroke="#109B75" stroke-width="1.3"/>
+                        <line x1="7" y1="14" x2="13" y2="24" stroke="#109B75" stroke-width="1.3"/>
+                        <path d="M3 24 Q8.5 29 14 24" stroke="#109B75" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                        <line x1="37" y1="14" x2="31" y2="24" stroke="#109B75" stroke-width="1.3"/>
+                        <line x1="37" y1="14" x2="40" y2="24" stroke="#109B75" stroke-width="1.3"/>
+                        <path d="M30 24 Q35.5 29 41 24" stroke="#109B75" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                    </svg>
+                    <div class="footer-logo-text">
+                        <span class="footer-logo-name">Life Beck</span>
+                        <span class="footer-logo-tagline">Attorney at Law</span>
+                        <span class="footer-logo-tagline">Property Rights</span>
+                    </div>
+                </a>
+                <p>Specialist property law firm helping individuals and businesses protect, transfer, and defend their property rights.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#services">Residential Property</a></li>
+                    <li><a href="#services">Commercial Property</a></li>
+                    <li><a href="#services">Property Rights Defence</a></li>
+                    <li><a href="#services">Property Transfer</a></li>
+                    <li><a href="#services">Landlord &amp; Tenant</a></li>
+                    <li><a href="#services">Development &amp; Planning</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#process">Our Process</a></li>
+                    <li><a href="#testimonials">Client Results</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <div class="footer-contact">
+                    <div class="fc-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.6" stroke-linecap="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                        <span>123 Legal Street<br>London, EC1A 1BB</span>
+                    </div>
+                    <div class="fc-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.6" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16v.92z"/></svg>
+                        <span>+45 29896547</span>
+                    </div>
+                    <div class="fc-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.6" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <span>LifeLaywer@Beck.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Life Beck. All rights reserved. Authorised and regulated by the Solicitors Regulation Authority.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Navbar scroll shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+    });
+
+    function closeMobile() {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                closeMobile();
+                const offset = 72;
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Form submission placeholder
+    function handleSubmit(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+        btn.textContent = 'Enquiry Sent — We\'ll be in touch shortly.';
+        btn.disabled = true;
+        btn.style.background = 'var(--teal-deep)';
+    }
+</script>
+</body>
+</html>
