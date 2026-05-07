@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leif Beck — Property Rights Attorney</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Domine:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="./style.css"/>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis smooth scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#20258d",
+            "on-primary": "#ffffff",
+            "secondary-container": "#8d94fd",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#e0e0ff",
+            "surface-dim": "#dad8e8",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "on-surface": "#1a1b26",
+            "secondary-fixed-dim": "#bfc2ff",
+            "secondary-fixed": "#e0e0ff",
+            "on-tertiary-fixed": "#410000",
+            "on-primary-container": "#b3b7ff",
+            "error": "#ba1a1a",
+            "surface-tint": "#343dff",
+            "surface-container-low": "#f4f2ff",
+            "tertiary": "#730001",
+            "outline": "#757589",
+            "on-primary-fixed-variant": "#0100ef",
+            "surface-variant": "#e2e1f1",
+            "surface-container-highest": "#e2e1f1",
+            "on-secondary-fixed": "#00006e",
+            "tertiary-container": "#9e0002",
+            "inverse-surface": "#2f2f3b",
+            "inverse-primary": "#bfc2ff",
+            "on-secondary": "#ffffff",
+            "on-surface-variant": "#454558",
+            "error-container": "#ffdad6",
+            "on-background": "#1a1b26",
+            "surface-container": "#eeecfc",
+            "on-primary-fixed": "#00006e",
+            "surface-container-high": "#e8e6f7",
+            "outline-variant": "#c5c4db",
+            "background": "#fbf8ff",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#ffdad5",
+            "inverse-on-surface": "#f1efff",
+            "on-tertiary-fixed-variant": "#930002",
+            "secondary": "#4d53b8",
+            "surface-bright": "#fbf8ff",
+            "primary": "#0000bb",
+            "on-tertiary-container": "#ffa699",
+            "on-error": "#ffffff",
+            "surface": "#fbf8ff",
+            "primary-fixed-dim": "#bfc2ff",
+            "primary-container": "#0303fe",
+            "on-secondary-fixed-variant": "#343a9f"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "base": "8px",
+            "section-padding": "80px",
+            "content-gap": "24px",
+            "container-max": "1140px",
+            "mobile-margin": "20px"
+          },
+          fontFamily: {
+            "label-caps": ["Work Sans", "sans-serif"],
+            "testimonial": ["Domine", "serif"],
+            "h1": ["Domine", "serif"],
+            "body-lg": ["Work Sans", "sans-serif"],
+            "h3": ["Domine", "serif"],
+            "body-md": ["Work Sans", "sans-serif"],
+            "h2": ["Domine", "serif"]
+          },
+          fontSize: {
+            "label-caps": ["11px", { "lineHeight": "1.5", "letterSpacing": "0.1em", "fontWeight": "300" }],
+            "testimonial": ["20px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "h1": ["56px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "h3": ["24px", { "lineHeight": "1.4", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "h2": ["36px", { "lineHeight": "1.3", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+
+  <!-- ── Infinite Grid Background ──────────────────────────────────────── -->
+  <div id="page-grid" aria-hidden="true">
+    <svg id="grid-svg-base" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <pattern id="grid-pat-base" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(0,0,187,0.055)" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid-pat-base)"/>
+    </svg>
+    <svg id="grid-svg-bright" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <pattern id="grid-pat-bright" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(0,0,187,0.22)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid-pat-bright)"/>
+    </svg>
+    <div class="grid-orb grid-orb-amber"></div>
+    <div class="grid-orb grid-orb-blue"></div>
+    <div class="grid-orb grid-orb-indigo"></div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to top">
+    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+  </button>
+
+  <!-- ── Navigation ─────────────────────────────────────────────────────── -->
+  <header id="navbar" class="bg-surface border-b border-outline-variant top-0 sticky z-50 transition-all duration-300">
+    <div class="flex justify-between items-center w-full px-mobile-margin md:px-section-padding max-w-container-max mx-auto h-24">
+      <a href="#" class="flex items-center gap-3 group" aria-label="Leif Beck — Home">
+        <!-- Shield monogram mark -->
+        <svg width="38" height="43" viewBox="0 0 38 43" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+          <path d="M19 1L1 8V24C1 33.5 9 41 19 43C29 41 37 33.5 37 24V8L19 1Z" fill="#0000bb"/>
+          <path d="M19 5L4.5 11V24C4.5 31.5 11 38 19 40C27 38 33.5 31.5 33.5 24V11L19 5Z" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.75"/>
+          <text x="19" y="28.5" text-anchor="middle" fill="white" font-family="Domine,serif" font-size="14" font-weight="700" letter-spacing="-0.5">LB</text>
+        </svg>
+        <!-- Wordmark -->
+        <div class="flex flex-col leading-tight hidden sm:flex">
+          <span style="font-family:'Domine',serif;font-size:19px;font-weight:700;letter-spacing:-0.01em;line-height:1.2;color:var(--tw-text-opacity,1)" class="text-on-surface">Leif Beck</span>
+          <span style="font-size:8px;letter-spacing:0.18em;text-transform:uppercase;font-family:'Work Sans',sans-serif;font-weight:400" class="text-on-surface-variant">Attorney at Law</span>
+        </div>
+      </a>
+      <nav class="hidden md:flex gap-8 items-center">
+        <a class="nav-link font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#client-results">Results</a>
+        <a class="nav-link font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#practice-areas">Practice Areas</a>
+        <a class="nav-link font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#our-team">Our Team</a>
+        <a class="nav-link font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#about">About</a>
+      </nav>
+      <a href="#contact" class="magnetic bg-primary hover:bg-primary-container text-on-primary font-label-caps text-label-caps py-3 px-6 rounded transition-all active:opacity-80 duration-150 shadow-sm hover:shadow uppercase tracking-widest">
+        Book a Consultation
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-grow flex flex-col">
+
+    <!-- ── Hero Section ───────────────────────────────────────────────── -->
+    <section id="hero-section" class="relative overflow-hidden py-section-padding px-mobile-margin md:px-section-padding w-full max-w-container-max mx-auto">
+
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-content-gap md:gap-12 items-center relative z-10">
+        <div class="flex flex-col gap-6">
+          <span id="hero-label" class="font-label-caps text-label-caps text-tertiary uppercase tracking-widest">
+            Attorney at Law · Property Rights
+          </span>
+          <h1 id="hero-title" class="font-h1 text-h1 text-on-surface tracking-tight">
+            Property Rights, Done Right.
+          </h1>
+          <p id="hero-body" class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+            Specializing in helping individuals and businesses protect, transfer, and defend their property rights with authority and precision.
+          </p>
+          <div id="hero-ctas" class="pt-4 flex flex-wrap gap-4">
+            <a href="#contact" class="magnetic bg-primary hover:bg-primary-container text-on-primary font-label-caps text-label-caps py-4 px-8 rounded transition-all shadow-sm hover:shadow active:scale-95 duration-150 uppercase tracking-widest">
+              Book a Consultation
+            </a>
+            <a href="#about" class="bg-transparent border border-primary text-primary hover:bg-surface-container-low font-label-caps text-label-caps py-4 px-8 rounded transition-all active:scale-95 duration-150 uppercase tracking-widest">
+              Learn More
+            </a>
+          </div>
+        </div>
+        <div id="hero-image" class="relative w-full aspect-[3/4] md:aspect-square lg:aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-low shadow-sm">
+          <img alt="Leif Beck Portrait" class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida/ADBb0ujSXETyJxMxthYvYm-B0dtxOAQLmIGjGS22NSc1on5Az3T3Q80W7K4ZtN3UfO-ov2cq-DckYrEieCgKtMOS3qft8lObjFFwSr1iQw867OIH3vacZGK01dapk6MUARq8N8J1I7RYD54DL2k99uxliytXKcUdmLou5hPd1HDb3UVhO3M7FkrYCISKrTfDMeG12nRvlREvXXzPNGlY0cf0YznTTLa0oFb2MgyznOXV0EQ9zo-kgS8N_d0iuzRskJ1rKINZKOiKtjJPZUQ"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Trust Signals (Marquee) ────────────────────────────────────── -->
+    <section class="border-y border-outline-variant/30 bg-surface-container-low py-8 overflow-hidden">
+      <div class="flex flex-col items-center gap-5">
+        <span class="font-label-caps text-label-caps text-tertiary uppercase tracking-widest">As Seen On &amp; Trusted By</span>
+        <div class="marquee-outer w-full overflow-hidden">
+          <div class="marquee-track flex gap-20 items-center" style="width: max-content;">
+            <span class="font-h3 text-h3 text-on-surface-variant font-bold opacity-35">Forbes</span>
+            <span class="font-h3 text-h3 text-on-surface-variant font-serif italic opacity-35">THE WALL STREET JOURNAL</span>
+            <span class="font-h3 text-h3 text-on-surface-variant tracking-tighter opacity-35">CNN</span>
+            <span class="font-h3 text-h3 text-on-surface-variant font-medium uppercase opacity-35">Bloomberg</span>
+            <span class="font-h3 text-h3 text-on-surface-variant font-bold opacity-35">Reuters</span>
+            <span class="font-h3 text-h3 text-on-surface-variant italic opacity-35">Financial Times</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="font-h3 text-h3 text-on-surface-variant font-bold opacity-35">Forbes</span>
+            <span class="font-h3 text-h3 text-on-surface-variant font-serif italic opacity-35">THE WALL STREET JOURNAL</span>
+            <span class="font-h3 text-h3 text-on-surface-variant tracking-tighter opacity-35">CNN</span>
+            <span class="font-h3 text-h3 text-on-surface-variant font-medium uppercase opacity-35">Bloomberg</span>
+            <span class="font-h3 text-h3 text-on-surface-variant font-bold opacity-35">Reuters</span>
+            <span class="font-h3 text-h3 text-on-surface-variant italic opacity-35">Financial Times</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Success Statistics ──────────────────────────────────────────── -->
+    <section class="relative overflow-hidden py-section-padding px-mobile-margin md:px-section-padding w-full max-w-container-max mx-auto">
+
+      <div data-reveal-stagger class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-outline-variant/30">
+        <div data-item class="flex flex-col gap-2 py-4 md:py-0">
+          <span id="stat-1" class="font-h1 text-h1 text-primary">500+</span>
+          <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Cases Won</span>
+        </div>
+        <div data-item class="flex flex-col gap-2 py-4 md:py-0">
+          <span id="stat-2" class="font-h1 text-h1 text-primary">$25M+</span>
+          <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Recovered for Clients</span>
+        </div>
+        <div data-item class="flex flex-col gap-2 py-4 md:py-0">
+          <span id="stat-3" class="font-h1 text-h1 text-primary">15+</span>
+          <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Years of Expertise</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Testimonials (Swiper) ──────────────────────────────────────── -->
+    <section id="client-results" class="bg-surface-container-low py-section-padding">
+      <div class="px-mobile-margin md:px-section-padding w-full max-w-container-max mx-auto flex flex-col gap-12">
+        <div data-reveal class="flex flex-col md:flex-row justify-between items-end gap-6">
+          <div>
+            <span class="font-label-caps text-label-caps text-tertiary uppercase tracking-widest block mb-3">What Clients Say</span>
+            <h2 class="font-h2 text-h2 text-on-surface">Client Results</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-2">Hear from those whose property rights we've successfully defended.</p>
+          </div>
+          <button id="view-all-results" class="magnetic bg-transparent border border-primary text-primary hover:bg-surface-container font-label-caps text-label-caps py-3 px-6 rounded transition-all whitespace-nowrap uppercase tracking-widest flex items-center gap-2">
+            View All Results <span class="material-symbols-outlined text-base transition-transform duration-300" id="view-all-results-icon">expand_more</span>
+          </button>
+        </div>
+        <div data-reveal-stagger class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Card 1 — Sarah J. -->
+          <div data-item class="bg-surface p-8 rounded-lg border border-outline-variant/20 shadow-sm flex flex-col gap-4">
+            <div class="flex text-primary gap-1">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+            </div>
+            <p class="font-testimonial text-testimonial text-on-surface italic flex-grow">"Leif fought for my rights against a major developer and won. His strategic approach saved my family's land. I cannot recommend him enough."</p>
+            <div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&fit=crop&crop=face&auto=format&q=80" alt="Sarah J." class="w-10 h-10 rounded-full object-cover flex-shrink-0"/>
+                <div>
+                  <p class="font-label-caps text-label-caps text-on-surface font-medium">Sarah J.</p>
+                  <p class="text-xs text-on-surface-variant">Homeowner, Portland</p>
+                </div>
+              </div>
+              <span class="text-xs font-medium text-primary bg-primary-fixed/30 px-2 py-1 rounded whitespace-nowrap">Zoning Victory</span>
+            </div>
+          </div>
+
+          <!-- Card 2 — Michael T. -->
+          <div data-item class="bg-surface p-8 rounded-lg border border-outline-variant/20 shadow-sm flex flex-col gap-4">
+            <div class="flex text-primary gap-1">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+            </div>
+            <p class="font-testimonial text-testimonial text-on-surface italic flex-grow">"When the city tried to take our commercial property, Leif Beck stepped in and secured compensation far above their initial offer. A true advocate."</p>
+            <div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=96&h=96&fit=crop&crop=face&auto=format&q=80" alt="Michael T." class="w-10 h-10 rounded-full object-cover flex-shrink-0"/>
+                <div>
+                  <p class="font-label-caps text-label-caps text-on-surface font-medium">Michael T.</p>
+                  <p class="text-xs text-on-surface-variant">Business Owner, Seattle</p>
+                </div>
+              </div>
+              <span class="text-xs font-medium text-primary bg-primary-fixed/30 px-2 py-1 rounded whitespace-nowrap">Eminent Domain</span>
+            </div>
+          </div>
+
+          <!-- Card 3 — Elena R. -->
+          <div data-item class="bg-surface p-8 rounded-lg border border-outline-variant/20 shadow-sm flex flex-col gap-4">
+            <div class="flex text-primary gap-1">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+            </div>
+            <p class="font-testimonial text-testimonial text-on-surface italic flex-grow">"Complex real estate litigation requires a sharp mind. Leif Beck provided exactly that, resolving a multi-party boundary dispute efficiently and completely."</p>
+            <div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6d0?w=96&h=96&fit=crop&crop=face&auto=format&q=80" alt="Elena R." class="w-10 h-10 rounded-full object-cover flex-shrink-0"/>
+                <div>
+                  <p class="font-label-caps text-label-caps text-on-surface font-medium">Elena R.</p>
+                  <p class="text-xs text-on-surface-variant">Property Investor, Chicago</p>
+                </div>
+              </div>
+              <span class="text-xs font-medium text-primary bg-primary-fixed/30 px-2 py-1 rounded whitespace-nowrap">Litigation Won</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Extra results — hidden until "View All Results" is clicked -->
+        <div id="extra-results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" style="display:none;">
+
+          <!-- Card 4 — David K. -->
+          <div class="bg-surface p-8 rounded-lg border border-outline-variant/20 shadow-sm flex flex-col gap-4">
+            <div class="flex text-primary gap-1">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+            </div>
+            <p class="font-testimonial text-testimonial text-on-surface italic flex-grow">"Our neighbor encroached on two acres of our land for years. Leif's team resolved the boundary dispute in months. We got every inch back."</p>
+            <div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=96&h=96&fit=crop&crop=face&auto=format&q=80" alt="David K." class="w-10 h-10 rounded-full object-cover flex-shrink-0"/>
+                <div>
+                  <p class="font-label-caps text-label-caps text-on-surface font-medium">David K.</p>
+                  <p class="text-xs text-on-surface-variant">Landowner, Austin</p>
+                </div>
+              </div>
+              <span class="text-xs font-medium text-primary bg-primary-fixed/30 px-2 py-1 rounded whitespace-nowrap">Boundary Dispute</span>
+            </div>
+          </div>
+
+          <!-- Card 5 — Patricia L. -->
+          <div class="bg-surface p-8 rounded-lg border border-outline-variant/20 shadow-sm flex flex-col gap-4">
+            <div class="flex text-primary gap-1">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+            </div>
+            <p class="font-testimonial text-testimonial text-on-surface italic flex-grow">"A fraudulent title claim threatened everything I'd built. Leif Beck uncovered the fraud and cleared my deed in record time. Exceptional work."</p>
+            <div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=96&h=96&fit=crop&crop=face&auto=format&q=80" alt="Patricia L." class="w-10 h-10 rounded-full object-cover flex-shrink-0"/>
+                <div>
+                  <p class="font-label-caps text-label-caps text-on-surface font-medium">Patricia L.</p>
+                  <p class="text-xs text-on-surface-variant">Retail Developer, Miami</p>
+                </div>
+              </div>
+              <span class="text-xs font-medium text-primary bg-primary-fixed/30 px-2 py-1 rounded whitespace-nowrap">Title Dispute</span>
+            </div>
+          </div>
+
+          <!-- Card 6 — Robert M. -->
+          <div class="bg-surface p-8 rounded-lg border border-outline-variant/20 shadow-sm flex flex-col gap-4">
+            <div class="flex text-primary gap-1">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+            </div>
+            <p class="font-testimonial text-testimonial text-on-surface italic flex-grow">"The rezoning application had been denied twice. Rebecca Torres and the Leif Beck team appealed and won. Our development is finally moving forward."</p>
+            <div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=96&h=96&fit=crop&crop=face&auto=format&q=80" alt="Robert M." class="w-10 h-10 rounded-full object-cover flex-shrink-0"/>
+                <div>
+                  <p class="font-label-caps text-label-caps text-on-surface font-medium">Robert M.</p>
+                  <p class="text-xs text-on-surface-variant">Real Estate Developer, Denver</p>
+                </div>
+              </div>
+              <span class="text-xs font-medium text-primary bg-primary-fixed/30 px-2 py-1 rounded whitespace-nowrap">Rezoning Win</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Practice Areas ─────────────────────────────────────────────── -->
+    <section id="practice-areas" class="py-section-padding px-mobile-margin md:px-section-padding w-full max-w-container-max mx-auto">
+      <div class="flex flex-col gap-12">
+        <div data-reveal class="flex flex-col md:flex-row justify-between items-end gap-6">
+          <div class="max-w-2xl">
+            <span class="font-label-caps text-label-caps text-tertiary uppercase tracking-widest block mb-3">What We Do</span>
+            <h2 class="font-h2 text-h2 text-on-surface mb-4">Focused Expertise</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">We concentrate our practice on the most complex areas of property law to deliver unparalleled advocacy.</p>
+          </div>
+          <button id="view-all-services" class="magnetic bg-transparent border border-primary text-primary hover:bg-surface-container-low font-label-caps text-label-caps py-3 px-6 rounded transition-all whitespace-nowrap uppercase tracking-widest flex items-center gap-2">
+            View All Services <span class="material-symbols-outlined text-base transition-transform duration-300" id="view-all-icon">expand_more</span>
+          </button>
+        </div>
+        <div data-reveal-stagger class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+          <div data-item class="tilt-card bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30 flex flex-col gap-6 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+            <div class="h-12 w-12 bg-primary-container/20 rounded flex items-center justify-center text-primary z-10">
+              <span class="material-symbols-outlined">gavel</span>
+            </div>
+            <div class="z-10 flex-grow">
+              <h3 class="font-h3 text-h3 text-on-surface mb-3 group-hover:text-primary transition-colors">Real Estate Litigation</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">Resolving disputes over boundaries, easements, title defects, and breach of contract with aggressive representation in court.</p>
+            </div>
+            <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps z-10 group-hover:underline uppercase tracking-widest" href="#contact">
+              Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+          <div data-item class="tilt-card bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30 flex flex-col gap-6 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+            <div class="h-12 w-12 bg-primary-container/20 rounded flex items-center justify-center text-primary z-10">
+              <span class="material-symbols-outlined">architecture</span>
+            </div>
+            <div class="z-10 flex-grow">
+              <h3 class="font-h3 text-h3 text-on-surface mb-3 group-hover:text-primary transition-colors">Zoning &amp; Land Use</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">Navigating complex municipal regulations to secure variances, special use permits, and rezoning approvals for your projects.</p>
+            </div>
+            <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps z-10 group-hover:underline uppercase tracking-widest" href="#contact">
+              Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+          <div data-item class="tilt-card bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30 flex flex-col gap-6 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden md:col-span-2 lg:col-span-1">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+            <div class="h-12 w-12 bg-primary-container/20 rounded flex items-center justify-center text-primary z-10">
+              <span class="material-symbols-outlined">domain</span>
+            </div>
+            <div class="z-10 flex-grow">
+              <h3 class="font-h3 text-h3 text-on-surface mb-3 group-hover:text-primary transition-colors">Eminent Domain</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">Protecting property owners when the government attempts condemnation, ensuring maximum fair market value compensation.</p>
+            </div>
+            <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps z-10 group-hover:underline uppercase tracking-widest" href="#contact">
+              Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Extra services — hidden until "View All Services" is clicked -->
+        <div id="extra-services" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr" style="display:none;">
+          <div class="tilt-card bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30 flex flex-col gap-6 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+            <div class="h-12 w-12 bg-primary-container/20 rounded flex items-center justify-center text-primary z-10">
+              <span class="material-symbols-outlined">verified</span>
+            </div>
+            <div class="z-10 flex-grow">
+              <h3 class="font-h3 text-h3 text-on-surface mb-3 group-hover:text-primary transition-colors">Title &amp; Deed Disputes</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">Clearing clouds on title, resolving chain-of-title defects, and litigating fraudulent conveyances to restore clear ownership.</p>
+            </div>
+            <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps z-10 group-hover:underline uppercase tracking-widest" href="#contact">
+              Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+          <div class="tilt-card bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30 flex flex-col gap-6 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+            <div class="h-12 w-12 bg-primary-container/20 rounded flex items-center justify-center text-primary z-10">
+              <span class="material-symbols-outlined">account_balance</span>
+            </div>
+            <div class="z-10 flex-grow">
+              <h3 class="font-h3 text-h3 text-on-surface mb-3 group-hover:text-primary transition-colors">Property Tax Appeals</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">Challenging unfair assessments before tax boards and courts to reduce your tax burden and recover overpayments.</p>
+            </div>
+            <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps z-10 group-hover:underline uppercase tracking-widest" href="#contact">
+              Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+          <div class="tilt-card bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30 flex flex-col gap-6 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+            <div class="h-12 w-12 bg-primary-container/20 rounded flex items-center justify-center text-primary z-10">
+              <span class="material-symbols-outlined">handshake</span>
+            </div>
+            <div class="z-10 flex-grow">
+              <h3 class="font-h3 text-h3 text-on-surface mb-3 group-hover:text-primary transition-colors">HOA &amp; Covenant Law</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">Advising homeowners and associations on restrictive covenants, HOA enforcement disputes, and amendment proceedings.</p>
+            </div>
+            <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps z-10 group-hover:underline uppercase tracking-widest" href="#contact">
+              Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Meet the Team ──────────────────────────────────────────────────── -->
+  <section id="our-team" class="relative w-full overflow-hidden bg-white py-16 md:py-24">
+
+    <!-- Decorative background curl -->
+    <svg class="absolute right-0 bottom-0" style="color:#eeecfc;" fill="none" height="200" viewBox="0 0 460 154" width="600" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#teamclip)">
+        <path d="M-87.463 458.432C-102.118 348.092 -77.3418 238.841 -15.0744 188.274C57.4129 129.408 180.708 150.071 351.748 341.128C278.246 -374.233 633.954 380.602 548.123 42.7707" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="40"/>
+      </g>
+      <defs>
+        <clipPath id="teamclip"><rect fill="white" height="154" width="460"/></clipPath>
+      </defs>
+    </svg>
+
+    <div class="relative z-10">
+
+      <!-- Header -->
+      <div data-reveal class="mx-auto mb-16 flex max-w-3xl flex-col items-center px-6 text-center">
+        <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-on-primary shadow-md">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16.051 12.616a1 1 0 0 1 1.909.024l.737 1.452a1 1 0 0 0 .737.535l1.634.256a1 1 0 0 1 .588 1.806l-1.172 1.168a1 1 0 0 0-.282.866l.259 1.613a1 1 0 0 1-1.541 1.134l-1.465-.75a1 1 0 0 0-.912 0l-1.465.75a1 1 0 0 1-1.539-1.133l.258-1.613a1 1 0 0 0-.282-.866l-1.156-1.153a1 1 0 0 1 .572-1.822l1.633-.256a1 1 0 0 0 .737-.535z"/>
+            <path d="M8 15H7a4 4 0 0 0-4 4v2"/>
+            <circle cx="10" cy="7" r="4"/>
+          </svg>
+        </div>
+
+        <h2 class="relative mb-4 font-h2 text-h2 text-on-surface tracking-tight">
+          Meet Our Legal Team
+          <svg class="absolute -top-2 -right-8 -z-10 w-20 text-primary opacity-20" fill="currentColor" height="86" viewBox="0 0 108 86" width="108" xmlns="http://www.w3.org/2000/svg">
+            <path d="M38.8484 16.236L15 43.5793L78.2688 15L18.1218 71L93 34.1172L70.2047 65.2739" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="28"/>
+          </svg>
+        </h2>
+        <p class="max-w-2xl font-body-lg text-body-lg text-on-surface-variant">
+          Experienced attorneys and dedicated legal professionals, united by a single mission — protecting your property rights with authority and precision.
+        </p>
+      </div>
+
+      <!-- Marquee -->
+      <div class="team-marquee-outer relative w-full overflow-hidden">
+        <div class="pointer-events-none absolute top-0 left-0 z-10 h-full w-40 bg-gradient-to-r from-white to-transparent"></div>
+        <div class="pointer-events-none absolute top-0 right-0 z-10 h-full w-40 bg-gradient-to-l from-white to-transparent"></div>
+
+        <div class="team-marquee-track flex" style="min-width:max-content; gap:1.5rem; padding:1rem 0;">
+
+          <!-- ── Set 1 ── -->
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Leif Beck" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida/ADBb0ujSXETyJxMxthYvYm-B0dtxOAQLmIGjGS22NSc1on5Az3T3Q80W7K4ZtN3UfO-ov2cq-DckYrEieCgKtMOS3qft8lObjFFwSr1iQw867OIH3vacZGK01dapk6MUARq8N8J1I7RYD54DL2k99uxliytXKcUdmLou5hPd1HDb3UVhO3M7FkrYCISKrTfDMeG12nRvlREvXXzPNGlY0cf0YznTTLa0oFb2MgyznOXV0EQ9zo-kgS8N_d0iuzRskJ1rKINZKOiKtjJPZUQ"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Leif Beck, Esq.</h3>
+                <p class="text-xs text-on-surface-variant">Managing Partner</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Sarah Mitchell" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Sarah Mitchell</h3>
+                <p class="text-xs text-on-surface-variant">Senior Associate Attorney</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="James Crawford" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">James Crawford</h3>
+                <p class="text-xs text-on-surface-variant">Real Estate Litigator</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Rebecca Torres" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Rebecca Torres</h3>
+                <p class="text-xs text-on-surface-variant">Zoning &amp; Land Use Attorney</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Michael Chen" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Michael Chen</h3>
+                <p class="text-xs text-on-surface-variant">Eminent Domain Expert</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Amanda Foster" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Amanda Foster</h3>
+                <p class="text-xs text-on-surface-variant">Head Paralegal</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Daniel Voss" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Daniel Voss</h3>
+                <p class="text-xs text-on-surface-variant">Property Tax Specialist</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Priya Sharma" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Priya Sharma</h3>
+                <p class="text-xs text-on-surface-variant">Senior Associate Attorney</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Ayman Chanhiry" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="./Ayman.jpg"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Ayman Chanhiry</h3>
+                <p class="text-xs text-on-surface-variant">Litigation Partner</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Olivia Park" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Olivia Park</h3>
+                <p class="text-xs text-on-surface-variant">Real Estate Attorney</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Marcus Williams" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Marcus Williams</h3>
+                <p class="text-xs text-on-surface-variant">Land Use Specialist</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Claire Bouchard" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1590086782792-42dd2350140d?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Claire Bouchard</h3>
+                <p class="text-xs text-on-surface-variant">Eminent Domain Expert</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Set 2 (duplicate for seamless loop) ── -->
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Leif Beck" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida/ADBb0ujSXETyJxMxthYvYm-B0dtxOAQLmIGjGS22NSc1on5Az3T3Q80W7K4ZtN3UfO-ov2cq-DckYrEieCgKtMOS3qft8lObjFFwSr1iQw867OIH3vacZGK01dapk6MUARq8N8J1I7RYD54DL2k99uxliytXKcUdmLou5hPd1HDb3UVhO3M7FkrYCISKrTfDMeG12nRvlREvXXzPNGlY0cf0YznTTLa0oFb2MgyznOXV0EQ9zo-kgS8N_d0iuzRskJ1rKINZKOiKtjJPZUQ"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Leif Beck, Esq.</h3>
+                <p class="text-xs text-on-surface-variant">Managing Partner</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Sarah Mitchell" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Sarah Mitchell</h3>
+                <p class="text-xs text-on-surface-variant">Senior Associate Attorney</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="James Crawford" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">James Crawford</h3>
+                <p class="text-xs text-on-surface-variant">Real Estate Litigator</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Rebecca Torres" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Rebecca Torres</h3>
+                <p class="text-xs text-on-surface-variant">Zoning &amp; Land Use Attorney</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Michael Chen" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Michael Chen</h3>
+                <p class="text-xs text-on-surface-variant">Eminent Domain Expert</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Amanda Foster" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Amanda Foster</h3>
+                <p class="text-xs text-on-surface-variant">Head Paralegal</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Daniel Voss" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Daniel Voss</h3>
+                <p class="text-xs text-on-surface-variant">Property Tax Specialist</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Priya Sharma" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Priya Sharma</h3>
+                <p class="text-xs text-on-surface-variant">Senior Associate Attorney</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Ayman Chanhiry" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="./Ayman.jpg"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Ayman Chanhiry</h3>
+                <p class="text-xs text-on-surface-variant">Litigation Partner</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Olivia Park" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Olivia Park</h3>
+                <p class="text-xs text-on-surface-variant">Real Estate Attorney</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Marcus Williams" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Marcus Williams</h3>
+                <p class="text-xs text-on-surface-variant">Land Use Specialist</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="group flex w-64 shrink-0 flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-neutral-100" style="height:340px;">
+              <img alt="Claire Bouchard" class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1590086782792-42dd2350140d?w=320&h=480&fit=crop&crop=face&auto=format&q=80"/>
+              <div class="absolute bottom-0 w-full rounded-b-2xl bg-white/90 p-3 backdrop-blur-sm">
+                <h3 class="font-bold text-sm text-on-surface">Claire Bouchard</h3>
+                <p class="text-xs text-on-surface-variant">Eminent Domain Expert</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom testimonial quote -->
+      <div data-reveal class="mx-auto mt-20 max-w-3xl px-6 text-center">
+        <p class="mb-8 font-testimonial text-testimonial text-on-surface italic leading-relaxed">
+          "Our team brings decades of combined experience to every case. We fight for your property rights with the same tenacity we would want for our own families."
+        </p>
+        <div class="flex flex-col items-center gap-3">
+          <div class="h-14 w-14 overflow-hidden rounded-full" style="box-shadow: 0 0 0 2px rgba(0,0,187,0.15);">
+            <img alt="Leif Beck" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ujSXETyJxMxthYvYm-B0dtxOAQLmIGjGS22NSc1on5Az3T3Q80W7K4ZtN3UfO-ov2cq-DckYrEieCgKtMOS3qft8lObjFFwSr1iQw867OIH3vacZGK01dapk6MUARq8N8J1I7RYD54DL2k99uxliytXKcUdmLou5hPd1HDb3UVhO3M7FkrYCISKrTfDMeG12nRvlREvXXzPNGlY0cf0YznTTLa0oFb2MgyznOXV0EQ9zo-kgS8N_d0iuzRskJ1rKINZKOiKtjJPZUQ"/>
+          </div>
+          <div>
+            <p class="font-semibold text-on-surface">Leif Beck, Esq.</p>
+            <p class="font-label-caps text-label-caps text-on-surface-variant">Managing Partner · Property Rights Authority</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── About Section ─────────────────────────────────────────────────── -->
+  <section id="about" class="py-section-padding px-mobile-margin md:px-section-padding w-full max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: text -->
+      <div class="flex flex-col gap-8">
+        <div data-reveal>
+          <span class="font-label-caps text-label-caps text-tertiary uppercase tracking-widest block mb-3">Our Story</span>
+          <h2 class="font-h2 text-h2 text-on-surface mb-6">Built on Principle. Driven by Results.</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-4">
+            Leif Beck Law was founded in 2009 with a single conviction: every property owner deserves fierce, expert representation — regardless of whether they're an individual homeowner or a large commercial developer.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4">
+            Over fifteen years we have grown from a solo practice into a full-service property rights firm trusted by clients across the Pacific Northwest and beyond. Our attorneys combine deep courtroom experience with a thorough understanding of local zoning codes, title law, and eminent domain procedure.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            We measure success not by billable hours but by outcomes — land secured, compensation recovered, and rights restored. When your property is on the line, we treat it as if it were our own.
+          </p>
+        </div>
+
+        <!-- Core values -->
+        <div data-reveal-stagger class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+          <div data-item class="flex items-start gap-3 p-5 rounded-xl bg-surface-container-low border border-outline-variant/20">
+            <span class="material-symbols-outlined text-primary mt-0.5">verified_user</span>
+            <div>
+              <p class="font-semibold text-on-surface text-sm mb-1">Integrity First</p>
+              <p class="text-xs text-on-surface-variant leading-relaxed">We give honest counsel even when it's not what clients want to hear.</p>
+            </div>
+          </div>
+          <div data-item class="flex items-start gap-3 p-5 rounded-xl bg-surface-container-low border border-outline-variant/20">
+            <span class="material-symbols-outlined text-primary mt-0.5">speed</span>
+            <div>
+              <p class="font-semibold text-on-surface text-sm mb-1">Swift Action</p>
+              <p class="text-xs text-on-surface-variant leading-relaxed">Property disputes move fast. We move faster — protecting your position from day one.</p>
+            </div>
+          </div>
+          <div data-item class="flex items-start gap-3 p-5 rounded-xl bg-surface-container-low border border-outline-variant/20">
+            <span class="material-symbols-outlined text-primary mt-0.5">groups</span>
+            <div>
+              <p class="font-semibold text-on-surface text-sm mb-1">Client-Centred</p>
+              <p class="text-xs text-on-surface-variant leading-relaxed">You get direct access to your attorney — not a paralegal — at every stage.</p>
+            </div>
+          </div>
+          <div data-item class="flex items-start gap-3 p-5 rounded-xl bg-surface-container-low border border-outline-variant/20">
+            <span class="material-symbols-outlined text-primary mt-0.5">emoji_events</span>
+            <div>
+              <p class="font-semibold text-on-surface text-sm mb-1">Proven Record</p>
+              <p class="text-xs text-on-surface-variant leading-relaxed">500+ cases won and $25 M+ recovered speaks louder than any promise.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: visual card stack -->
+      <div data-reveal class="relative flex flex-col gap-6">
+        <!-- Large quote card -->
+        <div class="tilt-card bg-primary rounded-2xl p-10 text-on-primary shadow-lg relative overflow-hidden">
+          <div class="absolute -top-12 -right-12 w-48 h-48 bg-white/5 rounded-full"></div>
+          <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-white/5 rounded-full"></div>
+          <span class="material-symbols-outlined text-4xl mb-4 block opacity-60">format_quote</span>
+          <p class="font-testimonial text-lg leading-relaxed mb-6 relative z-10">
+            "Property is not just an asset — it is the foundation of security, legacy, and freedom. We fight because those things matter."
+          </p>
+          <div class="flex items-center gap-3 relative z-10">
+            <div class="h-10 w-10 rounded-full overflow-hidden border-2 border-white/30">
+              <img src="https://lh3.googleusercontent.com/aida/ADBb0ujSXETyJxMxthYvYm-B0dtxOAQLmIGjGS22NSc1on5Az3T3Q80W7K4ZtN3UfO-ov2cq-DckYrEieCgKtMOS3qft8lObjFFwSr1iQw867OIH3vacZGK01dapk6MUARq8N8J1I7RYD54DL2k99uxliytXKcUdmLou5hPd1HDb3UVhO3M7FkrYCISKrTfDMeG12nRvlREvXXzPNGlY0cf0YznTTLa0oFb2MgyznOXV0EQ9zo-kgS8N_d0iuzRskJ1rKINZKOiKtjJPZUQ" alt="Leif Beck" class="w-full h-full object-cover"/>
+            </div>
+            <div>
+              <p class="font-semibold text-sm">Leif Beck, Esq.</p>
+              <p class="text-xs opacity-70">Founder &amp; Managing Partner</p>
+            </div>
+          </div>
+        </div>
+        <!-- Two mini stat cards -->
+        <div class="grid grid-cols-2 gap-6">
+          <div class="tilt-card bg-surface-container-low rounded-xl p-6 border border-outline-variant/20 text-center shadow-sm">
+            <p class="font-h2 text-h2 text-primary font-bold">2009</p>
+            <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mt-1">Founded</p>
+          </div>
+          <div class="tilt-card bg-surface-container-low rounded-xl p-6 border border-outline-variant/20 text-center shadow-sm">
+            <p class="font-h2 text-h2 text-primary font-bold">12</p>
+            <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mt-1">Attorneys</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Contact Section ────────────────────────────────────────────────── -->
+  <section class="relative overflow-hidden py-section-padding px-mobile-margin md:px-section-padding w-full max-w-container-max mx-auto" id="contact">
+
+    <div data-reveal class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div class="flex flex-col gap-6">
+        <span class="font-label-caps text-label-caps text-tertiary uppercase tracking-widest">Get In Touch</span>
+        <h2 class="font-h2 text-h2 text-on-surface">Schedule a Consultation</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+          Let us help you protect your property rights. Fill out the form below, and our team will get back to you within 24 hours to discuss your case.
+        </p>
+        <div class="mt-8 flex flex-col gap-4">
+          <div class="flex items-center gap-4 text-on-surface-variant font-body-md">
+            <span class="material-symbols-outlined text-primary">call</span>
+            <span>(555) 123-4567</span>
+          </div>
+          <div class="flex items-center gap-4 text-on-surface-variant font-body-md">
+            <span class="material-symbols-outlined text-primary">mail</span>
+            <span>consult@lifebeck.com</span>
+          </div>
+          <div class="flex items-center gap-4 text-on-surface-variant font-body-md">
+            <span class="material-symbols-outlined text-primary">location_on</span>
+            <span>123 Legal Avenue, Suite 400, Metropolis, NY</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-surface-container-low p-8 md:p-10 rounded-xl shadow-sm border border-outline-variant/30">
+        <form class="flex flex-col gap-6">
+          <div class="flex flex-col gap-2">
+            <label class="font-label-caps text-label-caps text-tertiary uppercase" for="name">Full Name</label>
+            <input class="bg-surface border border-outline-variant rounded p-3 font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" id="name" name="name" placeholder="Jane Doe" type="text"/>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="font-label-caps text-label-caps text-tertiary uppercase" for="email">Email Address</label>
+            <input class="bg-surface border border-outline-variant rounded p-3 font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" id="email" name="email" placeholder="jane@example.com" type="email"/>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="font-label-caps text-label-caps text-tertiary uppercase" for="message">Message</label>
+            <textarea class="bg-surface border border-outline-variant rounded p-3 font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" id="message" name="message" placeholder="Tell us about your property rights matter..." rows="4"></textarea>
+          </div>
+          <button class="magnetic bg-primary hover:bg-primary-container text-on-primary font-label-caps text-label-caps py-4 px-8 rounded transition-all shadow-sm hover:shadow active:scale-95 duration-150 w-full uppercase tracking-widest" type="submit">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────────────────── -->
+  <footer class="bg-surface-container-low border-t border-outline-variant">
+    <div data-reveal class="grid grid-cols-1 md:grid-cols-3 gap-content-gap w-full py-section-padding px-mobile-margin md:px-section-padding max-w-container-max mx-auto">
+      <div class="flex flex-col gap-4">
+        <span class="font-h3 text-h3 text-on-surface font-bold">Leif Beck</span>
+        <p class="font-body-md text-body-md text-on-surface-variant">
+          Specialized legal counsel for individuals and businesses protecting their property rights.
+        </p>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-4">
+          © 2024 Leif Beck Attorney at Law. All Rights Reserved.
+        </p>
+      </div>
+      <div class="flex flex-col gap-4 md:col-span-2 md:items-end">
+        <nav class="flex flex-wrap gap-6 md:justify-end">
+          <a id="privacy-link" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase cursor-pointer" href="#">Privacy Policy</a>
+          <a id="tos-link" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase cursor-pointer" href="#">Terms of Service</a>
+          <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase" href="#contact">Contact</a>
+          <a id="linkedin-link" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase cursor-pointer" href="#">LinkedIn</a>
+        </nav>
+        <div class="mt-8 flex flex-col gap-2 md:text-right">
+          <span class="font-body-md text-body-md text-on-surface-variant">123 Legal Avenue, Suite 400</span>
+          <span class="font-body-md text-body-md text-on-surface-variant">Metropolis, NY 10001</span>
+          <span class="font-body-md text-body-md text-primary font-medium mt-2">(555) 123-4567</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./main.js" defer></script>
+
+  <!-- ── Privacy Policy Modal ───────────────────────────────────────────── -->
+  <div id="modal-privacy" class="site-modal-overlay" aria-modal="true" role="dialog">
+    <div class="site-modal-box">
+      <button class="site-modal-close" aria-label="Close">&times;</button>
+      <h2 class="font-h3 text-h3 text-on-surface mb-1">Privacy Policy</h2>
+      <p class="text-xs text-on-surface-variant mb-6 uppercase tracking-widest">Last updated: January 1, 2024</p>
+      <div class="site-modal-body font-body-md text-body-md text-on-surface-variant flex flex-col gap-4">
+        <p><strong class="text-on-surface">1. Information We Collect.</strong> When you contact Leif Beck Law through our website, we collect the name, email address, phone number, and case details you voluntarily provide. We may also collect standard server log data (IP address, browser type, pages visited) for security and analytics purposes.</p>
+        <p><strong class="text-on-surface">2. How We Use Your Information.</strong> Your information is used solely to respond to your inquiry, schedule consultations, and provide legal services. We do not sell, rent, or share your personal data with third parties except as required by law or with your explicit consent.</p>
+        <p><strong class="text-on-surface">3. Attorney-Client Privilege.</strong> Communications submitted through this site do not establish an attorney-client relationship. Privileged communications only arise upon a signed engagement agreement.</p>
+        <p><strong class="text-on-surface">4. Data Security.</strong> We implement industry-standard security measures to protect your information. However, no method of transmission over the internet is 100% secure.</p>
+        <p><strong class="text-on-surface">5. Cookies.</strong> Our site uses minimal session cookies necessary for functionality. We do not use tracking or advertising cookies.</p>
+        <p><strong class="text-on-surface">6. Your Rights.</strong> You may request access to, correction of, or deletion of your personal data at any time by contacting us at <span class="text-primary">consult@leifbeck.com</span>.</p>
+        <p><strong class="text-on-surface">7. Changes.</strong> We may update this policy periodically. Continued use of the site after changes constitutes acceptance.</p>
+        <p><strong class="text-on-surface">Contact:</strong> Leif Beck Law · 123 Legal Avenue, Suite 400 · Metropolis, NY 10001 · (555) 123-4567</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Terms of Service Modal ─────────────────────────────────────────── -->
+  <div id="modal-tos" class="site-modal-overlay" aria-modal="true" role="dialog">
+    <div class="site-modal-box">
+      <button class="site-modal-close" aria-label="Close">&times;</button>
+      <h2 class="font-h3 text-h3 text-on-surface mb-1">Terms of Service</h2>
+      <p class="text-xs text-on-surface-variant mb-6 uppercase tracking-widest">Last updated: January 1, 2024</p>
+      <div class="site-modal-body font-body-md text-body-md text-on-surface-variant flex flex-col gap-4">
+        <p><strong class="text-on-surface">1. Acceptance.</strong> By accessing this website you agree to be bound by these Terms of Service. If you do not agree, please do not use the site.</p>
+        <p><strong class="text-on-surface">2. No Legal Advice.</strong> The content on this website is provided for general informational purposes only and does not constitute legal advice. Reading this site does not create an attorney-client relationship.</p>
+        <p><strong class="text-on-surface">3. No Guarantee of Outcome.</strong> Past results described on this site do not guarantee or predict a similar outcome in future matters. Every case is unique.</p>
+        <p><strong class="text-on-surface">4. Intellectual Property.</strong> All content on this site — including text, graphics, and the Leif Beck Law name and shield mark — is the property of Leif Beck Law and may not be reproduced without written permission.</p>
+        <p><strong class="text-on-surface">5. Third-Party Links.</strong> This site may contain links to third-party websites. Leif Beck Law is not responsible for the content or privacy practices of those sites.</p>
+        <p><strong class="text-on-surface">6. Limitation of Liability.</strong> To the fullest extent permitted by law, Leif Beck Law shall not be liable for any indirect, incidental, or consequential damages arising from your use of this website.</p>
+        <p><strong class="text-on-surface">7. Governing Law.</strong> These Terms are governed by the laws of the State of New York, without regard to conflict-of-law principles.</p>
+        <p><strong class="text-on-surface">8. Contact:</strong> For questions about these Terms, email <span class="text-primary">consult@leifbeck.com</span>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── LinkedIn Modal ─────────────────────────────────────────────────── -->
+  <div id="modal-linkedin" class="site-modal-overlay" aria-modal="true" role="dialog">
+    <div class="site-modal-box" style="max-width:480px;padding:0;overflow:hidden;">
+      <button class="site-modal-close" style="color:#fff;background:rgba(0,0,0,0.25);" aria-label="Close">&times;</button>
+      <!-- LinkedIn-style header -->
+      <div style="background:#0077b5;height:80px;position:relative;"></div>
+      <div style="padding:0 1.5rem 1.5rem;">
+        <div style="position:relative;margin-top:-40px;margin-bottom:0.75rem;">
+          <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+            <img src="https://lh3.googleusercontent.com/aida/ADBb0ujSXETyJxMxthYvYm-B0dtxOAQLmIGjGS22NSc1on5Az3T3Q80W7K4ZtN3UfO-ov2cq-DckYrEieCgKtMOS3qft8lObjFFwSr1iQw867OIH3vacZGK01dapk6MUARq8N8J1I7RYD54DL2k99uxliytXKcUdmLou5hPd1HDb3UVhO3M7FkrYCISKrTfDMeG12nRvlREvXXzPNGlY0cf0YznTTLa0oFb2MgyznOXV0EQ9zo-kgS8N_d0iuzRskJ1rKINZKOiKtjJPZUQ" alt="Leif Beck" style="width:100%;height:100%;object-fit:cover;"/>
+          </div>
+        </div>
+        <h2 style="font-family:'Domine',serif;font-size:20px;font-weight:700;color:#1a1a1a;margin-bottom:2px;">Leif Beck, Esq.</h2>
+        <p style="font-size:14px;color:#444;margin-bottom:4px;">Managing Partner &amp; Property Rights Attorney at <strong>Leif Beck Law</strong></p>
+        <p style="font-size:13px;color:#888;margin-bottom:12px;">📍 Metropolis, New York · <span style="color:#0077b5;font-weight:600;">500+ connections</span></p>
+        <div style="display:flex;gap:8px;margin-bottom:1.25rem;">
+          <span style="background:#0077b5;color:#fff;font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px;">Connect</span>
+          <span style="border:1.5px solid #0077b5;color:#0077b5;font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px;">Message</span>
+        </div>
+        <hr style="border-color:#e0e0e0;margin-bottom:1rem;"/>
+        <h3 style="font-size:14px;font-weight:700;color:#1a1a1a;margin-bottom:6px;">About</h3>
+        <p style="font-size:13px;color:#555;line-height:1.6;margin-bottom:1rem;">Founder of Leif Beck Law with 15+ years defending property owners in complex litigation, eminent domain, zoning, and title disputes. I believe every property owner deserves tenacious, expert advocacy — from the single homeowner to the multi-site developer.</p>
+        <hr style="border-color:#e0e0e0;margin-bottom:1rem;"/>
+        <h3 style="font-size:14px;font-weight:700;color:#1a1a1a;margin-bottom:8px;">Experience</h3>
+        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:36px;height:36px;background:#0000bb;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="20" height="22" viewBox="0 0 38 43" fill="none"><path d="M19 1L1 8V24C1 33.5 9 41 19 43C29 41 37 33.5 37 24V8L19 1Z" fill="white"/><text x="19" y="28.5" text-anchor="middle" fill="#0000bb" font-family="Domine,serif" font-size="12" font-weight="700">LB</text></svg>
+          </div>
+          <div>
+            <p style="font-size:13px;font-weight:600;color:#1a1a1a;">Managing Partner</p>
+            <p style="font-size:12px;color:#555;">Leif Beck Law · Full-time</p>
+            <p style="font-size:12px;color:#888;">2009 – Present · 15 yrs</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="width:36px;height:36px;background:#e8e8e8;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">⚖️</div>
+          <div>
+            <p style="font-size:13px;font-weight:600;color:#1a1a1a;">Associate Attorney</p>
+            <p style="font-size:12px;color:#555;">Morrison &amp; Grant LLP · Full-time</p>
+            <p style="font-size:12px;color:#888;">2004 – 2009 · 5 yrs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

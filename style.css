@@ -1,0 +1,209 @@
+/* ── Infinite Grid Background ─────────────────────────────────────────────── */
+#page-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+#page-grid svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+#grid-svg-bright {
+  mask-image: radial-gradient(350px circle at -9999px -9999px, black, transparent);
+  -webkit-mask-image: radial-gradient(350px circle at -9999px -9999px, black, transparent);
+}
+.grid-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+}
+.grid-orb-amber {
+  width: 700px; height: 700px;
+  background: rgba(255, 165, 50, 0.10);
+  top: -200px; right: -200px;
+}
+.grid-orb-blue {
+  width: 600px; height: 600px;
+  background: rgba(0, 0, 187, 0.07);
+  bottom: -150px; left: -150px;
+}
+.grid-orb-indigo {
+  width: 400px; height: 400px;
+  background: rgba(77, 83, 184, 0.06);
+  top: 45%; left: 25%;
+}
+main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Scroll Progress ──────────────────────────────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0000bb 0%, #4d53b8 60%, #8d94fd 100%);
+  z-index: 10000;
+  width: 0%;
+  transition: width 0.06s linear;
+}
+
+/* ── Navbar Scrolled ──────────────────────────────────────────────────────── */
+.nav-scrolled {
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background-color: rgba(251, 248, 255, 0.82) !important;
+  box-shadow: 0 1px 0 rgba(197, 196, 219, 0.4) !important;
+}
+
+/* ── Text Split ───────────────────────────────────────────────────────────── */
+.word-wrap {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.word { display: inline-block; }
+
+/* ── Hero Gradient Orbs ───────────────────────────────────────────────────── */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  animation: pulse-orb 7s ease-in-out infinite alternate;
+}
+.hero-orb-1 {
+  width: 420px; height: 420px;
+  background: rgba(0, 0, 187, 0.07);
+  top: -120px; left: -180px;
+  animation-delay: 0s;
+}
+.hero-orb-2 {
+  width: 320px; height: 320px;
+  background: rgba(77, 83, 184, 0.06);
+  bottom: -60px; right: -120px;
+  animation-delay: -3.5s;
+}
+
+@keyframes pulse-orb {
+  from { transform: scale(1) translateY(0); opacity: 0.5; }
+  to   { transform: scale(1.18) translateY(-24px); opacity: 1; }
+}
+
+/* ── Marquee ──────────────────────────────────────────────────────────────── */
+.marquee-track {
+  animation: marquee 28s linear infinite;
+  white-space: nowrap;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+/* ── Team Marquee ─────────────────────────────────────────────────────────── */
+.team-marquee-track {
+  animation: marquee 55s linear infinite;
+  will-change: transform;
+}
+.team-marquee-outer:hover .team-marquee-track {
+  animation-play-state: paused;
+}
+
+/* ── 3D Tilt Cards ────────────────────────────────────────────────────────── */
+.tilt-card { transform-style: preserve-3d; will-change: transform; }
+
+/* ── Magnetic Buttons ─────────────────────────────────────────────────────── */
+.magnetic { will-change: transform; }
+
+/* ── Back to Top ──────────────────────────────────────────────────────────── */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  width: 3rem; height: 3rem;
+  background: #0000bb;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 187, 0.3);
+  z-index: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+#back-to-top.visible { opacity: 1; pointer-events: auto; }
+#back-to-top:hover { transform: translateY(-3px); box-shadow: 0 6px 28px rgba(0, 0, 187, 0.4); }
+
+/* ── Modals ───────────────────────────────────────────────────────────────── */
+.site-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 27, 38, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.site-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.site-modal-box {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  max-width: 600px;
+  width: 100%;
+  max-height: 82vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(24px) scale(0.98);
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+}
+.site-modal-overlay.open .site-modal-box {
+  transform: translateY(0) scale(1);
+}
+.site-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(26,27,38,0.08);
+  color: #1a1b26;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 1;
+}
+.site-modal-close:hover { background: rgba(26,27,38,0.15); }
+.site-modal-body { max-height: 55vh; overflow-y: auto; padding-right: 0.5rem; }
+
+/* ── Nav underline ────────────────────────────────────────────────────────── */
+.nav-link::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: #0000bb;
+  width: 0;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
