@@ -980,7 +980,7 @@
     </div>
   </footer>
 
-  <script src="./main.js" defer></script>
+  <script src="./main.js?v=3" defer></script>
 
   <!-- ── Privacy Policy Modal ───────────────────────────────────────────── -->
   <div id="modal-privacy" class="site-modal-overlay" aria-modal="true" role="dialog">
@@ -1066,5 +1066,77 @@
     </div>
   </div>
 
+<script>
+// ── Inline interactive features (modals + toggles) ─────────────────────────
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Modals
+  function openModal(id) {
+    var el = document.getElementById(id);
+    if (el) { el.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  }
+  function closeModal(id) {
+    var el = document.getElementById(id);
+    if (el) { el.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  ['modal-privacy','modal-tos','modal-linkedin'].forEach(function(id) {
+    var overlay = document.getElementById(id);
+    if (!overlay) return;
+    var closeBtn = overlay.querySelector('.site-modal-close');
+    if (closeBtn) closeBtn.addEventListener('click', function() { closeModal(id); });
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(id); });
+  });
+  var pl = document.getElementById('privacy-link');
+  if (pl) pl.addEventListener('click', function(e) { e.preventDefault(); openModal('modal-privacy'); });
+  var tl = document.getElementById('tos-link');
+  if (tl) tl.addEventListener('click', function(e) { e.preventDefault(); openModal('modal-tos'); });
+  var ll = document.getElementById('linkedin-link');
+  if (ll) ll.addEventListener('click', function(e) { e.preventDefault(); openModal('modal-linkedin'); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') ['modal-privacy','modal-tos','modal-linkedin'].forEach(closeModal);
+  });
+
+  // View All Results toggle
+  var resultsBtn  = document.getElementById('view-all-results');
+  var resultsIcon = document.getElementById('view-all-results-icon');
+  var extraResults = document.getElementById('extra-results');
+  if (resultsBtn && extraResults) {
+    var rOpen = false;
+    resultsBtn.addEventListener('click', function() {
+      rOpen = !rOpen;
+      if (rOpen) {
+        extraResults.style.display = 'grid';
+        resultsBtn.childNodes[0].textContent = 'Show Less ';
+        if (resultsIcon) resultsIcon.textContent = 'expand_less';
+      } else {
+        extraResults.style.display = 'none';
+        resultsBtn.childNodes[0].textContent = 'View All Results ';
+        if (resultsIcon) resultsIcon.textContent = 'expand_more';
+      }
+    });
+  }
+
+  // View All Services toggle
+  var servicesBtn  = document.getElementById('view-all-services');
+  var servicesIcon = document.getElementById('view-all-icon');
+  var extraServices = document.getElementById('extra-services');
+  if (servicesBtn && extraServices) {
+    var sOpen = false;
+    servicesBtn.addEventListener('click', function() {
+      sOpen = !sOpen;
+      if (sOpen) {
+        extraServices.style.display = 'grid';
+        servicesBtn.childNodes[0].textContent = 'Show Less ';
+        if (servicesIcon) servicesIcon.textContent = 'expand_less';
+      } else {
+        extraServices.style.display = 'none';
+        servicesBtn.childNodes[0].textContent = 'View All Services ';
+        if (servicesIcon) servicesIcon.textContent = 'expand_more';
+      }
+    });
+  }
+
+});
+</script>
 </body>
 </html>
